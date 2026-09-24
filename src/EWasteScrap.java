@@ -1,12 +1,12 @@
 package GiuaKi;
 
-public abstract class EWasteScrap extends ScrapItem {
+public class EWasteScrap extends ScrapItem {
     private EWasteType type;
     protected EWasteScrap(String id, String name, double pricePerKg, double weight, EWasteType type) {
         super(id, name, pricePerKg, weight);
         this.type = type;
     }
-    
+
     public double calPrice() {
         return getPricePerKg() * getWeight();
     }

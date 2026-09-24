@@ -1,6 +1,6 @@
 package GiuaKi;
 
-public abstract class PlasticScrap extends ScrapItem{
+public class PlasticScrap extends ScrapItem{
     private PlasticType type;
 
     protected PlasticScrap(String id, String name, double pricePerKg, double weight, PlasticType type) {

@@ -14,7 +14,11 @@ public abstract class ScrapItem {
         this.pricePerKg=pricePerKg;
         this.weight=weight;
     }
+
+    public String getId(){ return id; }
+    public String getName(){ return name; }
     public double getPricePerKg(){ return pricePerKg; }
     public double getWeight(){ return weight; }
+
     public abstract void displayInfo();
 }

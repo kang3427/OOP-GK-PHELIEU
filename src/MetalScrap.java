@@ -1,6 +1,6 @@
 package GiuaKi;
 
-public abstract class MetalScrap extends ScrapItem {
+public class MetalScrap extends ScrapItem {
     private MetalType type;
 
     protected MetalScrap(String id, String name, double pricePerKg, double weight, MetalType type) {
