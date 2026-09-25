@@ -4,11 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
-    private List<CartItem> items;
-
-    public Cart() {
-        this.items = new ArrayList<>();
-    }
+    private List<CartItem> items= new ArrayList<>();
 
     public void addItem(ScrapItem item) {
         items.add(new CartItem(item));
@@ -43,4 +39,6 @@ public class Cart {
             System.out.println("TỔNG TIỀN GIỎ HÀNG: " + calTotal() + " VNĐ");
         }
     }
+
+    public List<CartItem> getCart(){ return items; }
 }
