@@ -7,4 +7,5 @@ package event;
  */
 
 public interface EventListener {
+    void onEvent(ShopEvent event);
 }
