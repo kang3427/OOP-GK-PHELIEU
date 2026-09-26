@@ -1,5 +1,5 @@
 package model;
-import enums.MetalType;
+import enums.*;
 
 /**
  * Lớp đại diện cho phế liệu kim loại (sắt, thép, đồng, nhôm...), kế thừa từ ScrapItem.

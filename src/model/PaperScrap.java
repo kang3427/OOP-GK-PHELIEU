@@ -1,5 +1,5 @@
 package model;
-import enums.PaperType;
+import enums.*;
 
 /**
  * Lớp đại diện cho phế liệu giấy (carton, giấy báo, giấy văn phòng...), kế thừa từ ScrapItem.

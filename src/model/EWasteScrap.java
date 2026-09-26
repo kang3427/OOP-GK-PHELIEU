@@ -1,5 +1,5 @@
 package model;
-import enums.EWasteType;
+import enums.*;
 
 /**
  * Lớp đại diện cho phế liệu điện tử (bo mạch, điện thoại, linh kiện máy tính...), kế thừa từ ScrapItem.

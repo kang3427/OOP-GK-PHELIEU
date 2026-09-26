@@ -1,5 +1,5 @@
 package model;
-import enums.PlasticType;
+import enums.*;
 
 /**
  * Lớp đại diện cho phế liệu nhựa (PET, HDPE, PVC, PP...), kế thừa từ ScrapItem.
