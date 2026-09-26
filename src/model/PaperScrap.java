@@ -1,4 +1,5 @@
-package GiuaKi;
+package model;
+import enums.PaperType;
 
 public class PaperScrap extends ScrapItem{
     private PaperType type;

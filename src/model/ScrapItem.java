@@ -1,4 +1,4 @@
-package GiuaKi;
+package model;
 
 public abstract class ScrapItem {
     private final String id;

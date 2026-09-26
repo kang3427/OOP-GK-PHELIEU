@@ -1,4 +1,4 @@
-package GiuaKi;
+package model;
 
 public class PurchaseOrderItem {
     private ScrapItem item;

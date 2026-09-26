@@ -1,4 +1,5 @@
-package GiuaKi;
+package model;
+import enums.EWasteType;
 
 public class EWasteScrap extends ScrapItem {
     private EWasteType type;

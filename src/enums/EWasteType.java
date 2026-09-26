@@ -1,4 +1,4 @@
-package GiuaKi;
+package enums;
 
 public enum EWasteType {
     CLEANORIGIN, NOORIGIN;

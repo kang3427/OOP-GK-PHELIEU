@@ -1,4 +1,5 @@
-package GiuaKi;
+package model;
+import enums.PlasticType;
 
 public class PlasticScrap extends ScrapItem{
     private PlasticType type;

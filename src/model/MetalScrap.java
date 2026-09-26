@@ -1,5 +1,5 @@
-package GiuaKi;
-
+package model;
+import enums.MetalType;
 public class MetalScrap extends ScrapItem {
     private MetalType type;
 
