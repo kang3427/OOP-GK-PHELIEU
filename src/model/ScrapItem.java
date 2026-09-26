@@ -3,8 +3,8 @@ package model;
 public abstract class ScrapItem {
     private final String id;
     private final String name;
-    private double pricePerKg;
-    private double weight;
+    private double pricePerKg;// Giá trên 1kg
+    private double weight; //Cân nặng
 
     public ScrapItem(String id,String name, double pricePerKg, double weight){
         if (id == null || name == null || pricePerKg <=0 || weight <0
