@@ -4,6 +4,12 @@ import enums.OrderStatus;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Lớp đại diện cho Phiếu thu mua phế liệu chính thức.
+ * Lưu trữ thông tin toàn bộ giao dịch: khách hàng bán, danh sách chi tiết hàng (PurchaseOrderItem),
+ * tổng tiền phải thanh toán, trạng thái phiếu (OrderStatus) và thời gian lập phiếu.
+ */
+
 public class PurchaseOrder {
     private String orderId;
     private String customer;

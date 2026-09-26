@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Lớp đại diện cho thông tin Khách hàng / Đối tác giao dịch với vựa phế liệu.
+ * Quản lý thông tin cá nhân, nhóm khách hàng (CustomerType) và số điểm thưởng tích lũy (rewardPoints).
+ */
+
 public abstract class Customer {
     private final String customerId;
     private final String name;

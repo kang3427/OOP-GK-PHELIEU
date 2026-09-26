@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * Lớp trừu tượng cơ sở đại diện cho một mặt hàng phế liệu chung trong hệ thống.
+ * Chứa các thông tin nền tảng như mã nhận diện (id), tên gọi (name),
+ * đơn giá niêm yết trên kg (pricePerKg) và khối lượng tồn kho khả dụng (weight).
+ */
+
 public abstract class ScrapItem {
     private final String id;
     private final String name;

@@ -1,5 +1,11 @@
 package payment;
 
+/**
+ * Triển khai phương thức thanh toán qua Ví điện tử (MoMo, ZaloPay, Viettel Money...).
+ * - Nghiệp vụ: Hỗ trợ chuyển tiền nhanh qua số điện thoại hoặc mã QR ví điện tử
+ *   của khách hàng khi thu gom tại chỗ.
+ */
+
 public class EWalletPayment implements Payment{
     private String viDienTu;
     private String soTaiKhoan;

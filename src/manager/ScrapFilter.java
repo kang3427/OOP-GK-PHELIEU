@@ -1,9 +1,14 @@
 package manager;
-
 import model.ScrapItem;
-
 import java.util.List;
 import java.util.function.Predicate;// Predicate là một Functional Interface trả về True False
+
+/**
+ * Lớp xử lý bộ lọc phế liệu (Scrap Filtering Component).
+ * Cung cấp các công cụ lọc và tìm kiếm danh sách phế liệu linh hoạt:
+ * - Lọc phế liệu theo đơn giá, khối lượng tồn kho, hoặc tên chủng loại.
+ * - Hỗ trợ kết hợp biểu thức Lambda (Predicate) để thực hiện các truy vấn dữ liệu nhanh chóng.
+ */
 
 public class ScrapFilter { // lớp lọc phế phẩm
     public List<ScrapItem> filter(// filter trả về một ds Scrap

@@ -1,6 +1,6 @@
 package enums;
 
-//
+//phân loại các phế liệu tổng quát
 public enum ScrapCategory {
     METAL,      // Kim loại
     PLASTIC,    // Nhựa
