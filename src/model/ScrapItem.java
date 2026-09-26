@@ -1,19 +1,18 @@
+package model;
+
+/**
+ * Lớp trừu tượng cơ sở đại diện cho một mặt hàng phế liệu chung trong hệ thống.
+ * Chứa các thông tin nền tảng như mã nhận diện (id), tên gọi (name),
+ * đơn giá niêm yết trên kg (pricePerKg) và khối lượng tồn kho khả dụng (weight).
+ */
 
 public abstract class ScrapItem {
     private final String id;
     private final String name;
-    private final double pricePerKg;
-    private final double weight;
-  
-package GiuaKi;
+    private double pricePerKg;// Giá trên 1kg
+    private double weight; //Cân nặng
 
-public abstract class ScrapItem {
-    private final String id;
-    private final String name;
-    private double pricePerKg;
-    private double weight;
-
-    protected ScrapItem(String id,String name, double pricePerKg, double weight){
+    public ScrapItem(String id,String name, double pricePerKg, double weight){
         if (id == null || name == null || pricePerKg <=0 || weight <0
                 || id.trim().isEmpty() || name.trim().isEmpty()){
             throw new IllegalArgumentException("Thông tin Phế Liệu KHÔNG phù hợp"); }
@@ -28,16 +27,12 @@ public abstract class ScrapItem {
     public double getPricePerKg(){ return pricePerKg; }
     public double getWeight(){ return weight; }
 
-
-    public abstract void displayInfo();
     @Override
     public String toString() {
         return "Phế liệu: " + this.name +
                 " | Giá: " + this.pricePerKg +
-                " | Tồn: " + this.weight;
+                " | Cân nặng: " + this.weight;
     }
-}
-
 
     public void setPricePerKg(double pricePerKg){
         this.pricePerKg=pricePerKg;
@@ -48,9 +43,4 @@ public abstract class ScrapItem {
     }
 
     public abstract void displayInfo();
-
-    @Override
-    public String toString() {
-        return "Phế liệu: " + this.name +"  Giá: " + this.pricePerKg +" Can nang: " + this.weight;
-    }
 }

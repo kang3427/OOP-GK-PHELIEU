@@ -1,5 +1,11 @@
 package payment;
 
+/**
+ * Triển khai phương thức thanh toán bằng Tiền mặt (Cash Payment).
+ * - Nghiệp vụ: Dùng cho các giao dịch trực tiếp tại cân vựa phế liệu,
+ *   chi trả tiền mặt tức thì cho khách vãng lai hoặc hộ gom nhỏ lẻ.
+ */
+
 public class CashPayment implements Payment{
     private String ten_ThuNgan;
     public CashPayment(String ten_ThuNgan) {

@@ -1,5 +1,11 @@
 package payment;
 
+/**
+ * Triển khai phương thức thanh toán qua Chuyển khoản Ngân hàng (Bank Transfer).
+ * - Nghiệp vụ: Dùng cho các đơn hàng lớn, đại lý hoặc khách VIP,
+ *   lưu trữ thông tin số tài khoản, ngân hàng thụ hưởng và mã giao dịch chuyển khoản.
+ */
+
 public class BankPayment implements Payment{
     private String nganHang;
     private String soTaiKhoan;

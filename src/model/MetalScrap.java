@@ -1,15 +1,16 @@
+package model;
+import enums.MetalType;
 
-public class MetalScrap extends ScrapItem {
-
-    public MetalScrap(String id, String name, double pricePerKg, double weight) {
-        super(id, name, pricePerKg, weight); // Gọi constructor của class cha
-
-package GiuaKi;
+/**
+ * Lớp đại diện cho phế liệu kim loại (sắt, thép, đồng, nhôm...), kế thừa từ ScrapItem.
+ * Quản lý thêm chủng loại kim loại (MetalType - Kim loại đen / Kim loại màu)
+ * để tính toán đơn giá chuẩn và phân loại lưu kho.
+ */
 
 public class MetalScrap extends ScrapItem {
     private MetalType type;
 
-    protected MetalScrap(String id, String name, double pricePerKg, double weight, MetalType type) {
+    public MetalScrap(String id, String name, double pricePerKg, double weight, MetalType type) {
         super(id, name, pricePerKg, weight);
         this.type = type;
     }

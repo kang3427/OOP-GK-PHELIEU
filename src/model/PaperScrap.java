@@ -1,9 +1,15 @@
-package GiuaKi;
+package model;
+import enums.PaperType;
+
+/**
+ * Lớp đại diện cho phế liệu giấy (carton, giấy báo, giấy văn phòng...), kế thừa từ ScrapItem.
+ * Quản lý loại giấy (PaperType) nhằm áp dụng bảng giá thu gom và quy trình đóng kiện riêng.
+ */
 
 public class PaperScrap extends ScrapItem{
     private PaperType type;
 
-    protected PaperScrap(String id, String name, double pricePerKg, double weight, PaperType type) {
+    public PaperScrap(String id, String name, double pricePerKg, double weight, PaperType type) {
         super(id, name, pricePerKg, weight);
         this.type = type;
     }
