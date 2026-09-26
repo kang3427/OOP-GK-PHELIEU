@@ -1,8 +1,7 @@
 package event;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  * Lớp quản lý và điều hướng sự kiện tập trung (Publisher / Subject).
