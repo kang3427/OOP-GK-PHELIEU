@@ -1,7 +1,6 @@
 package event;
 import java.util.ArrayList;
 import java.util.List;
-package Event;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,3 +23,4 @@ public class EventManager {
             listener.onEvent(event);
         }
     }
+}
