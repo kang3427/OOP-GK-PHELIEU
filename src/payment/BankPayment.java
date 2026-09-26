@@ -15,7 +15,7 @@ public class BankPayment implements Payment{
                 + So_Tien +" "+ nganHang +" "+ soTaiKhoan +" "+ tenTaiKhoan);
     }
     @Override
-    public String getPaymentType() {
+    public String getPayment() {
         return "Ngan hang: "+nganHang +" So tai khoan: "+ soTaiKhoan;
     }
 }

@@ -13,7 +13,7 @@ public class EWalletPayment implements Payment{
         + So_Tien +" "+ viDienTu +" "+ soTaiKhoan);
     }
     @Override
-    public String getPaymentType(){
+    public String getPayment(){
         return "Vi dien tu: "+viDienTu+" So tai khoan: "+ soTaiKhoan;
     }
 }

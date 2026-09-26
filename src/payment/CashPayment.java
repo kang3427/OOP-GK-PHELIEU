@@ -11,7 +11,7 @@ public class CashPayment implements Payment{
                 + So_Tien + " Thu ngan: " + ten_ThuNgan);
     }
     @Override
-    public String getPaymentType() {
+    public String getPayment() {
         return "Tien mat (Thu ngan: " + ten_ThuNgan+")";
     }
 }
