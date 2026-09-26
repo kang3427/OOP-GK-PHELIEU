@@ -11,7 +11,7 @@ public abstract class Customer {
     private final String phone;
     private final String address;
 
-    protected Customer(String customerId, String name, String phone, String address) {
+    public Customer(String customerId, String name, String phone, String address) {
         this.customerId = customerId;
         this.name = name;
         this.phone = phone;

@@ -9,7 +9,7 @@ import enums.PlasticType;
 public class PlasticScrap extends ScrapItem{
     private PlasticType type;
 
-    protected PlasticScrap(String id, String name, double pricePerKg, double weight, PlasticType type) {
+    public PlasticScrap(String id, String name, double pricePerKg, double weight, PlasticType type) {
         super(id, name, pricePerKg, weight);
         this.type=type;
     }

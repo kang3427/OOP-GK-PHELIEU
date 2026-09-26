@@ -9,7 +9,7 @@ import enums.PaperType;
 public class PaperScrap extends ScrapItem{
     private PaperType type;
 
-    protected PaperScrap(String id, String name, double pricePerKg, double weight, PaperType type) {
+    public PaperScrap(String id, String name, double pricePerKg, double weight, PaperType type) {
         super(id, name, pricePerKg, weight);
         this.type = type;
     }
