@@ -1,5 +1,5 @@
 package model;
-import enums.orderStatus;
+import enums.OrderStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ public class PurchaseOrder {
     private String orderId;
     private String customer;
     private List<PurchaseOrderItem> order = new ArrayList<>();
-    private orderStatus status= orderStatus.PENDING;
+    private OrderStatus status= OrderStatus.PENDING;
 
     public void addItem(ScrapItem item) {
         order.add(new PurchaseOrderItem(item));
@@ -21,7 +21,7 @@ public class PurchaseOrder {
     public PurchaseOrder(String orderId, String customer, Cart cart) {
         this.orderId = orderId;
         this.customer = customer;
-        this.status = orderStatus.PROCESSING;
+        this.status = OrderStatus.PROCESSING;
 
         for (CartItem x: cart.getCart()){
             ScrapItem i = x.getItem();
