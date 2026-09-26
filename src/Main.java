@@ -85,7 +85,34 @@ public class Main {
                         "Đã thanh toán 350.000 VND cho khách."
                 )
         );
-        //Nguyen Hoang Luan
+
+
+        // ==========================================
+        // PHẦN 4: KIỂM THỬ HÓA ĐƠN (PHẦN K - INVOICE)
+        // ==========================================
+        System.out.println("\n========== KIỂM THỬ HÓA ĐƠN (INVOICE) ==========");
+
+        // 1. Tạo các món phế liệu khách mang tới bán (Thiết lập giá và khối lượng)
+        // Sắt vụn: 25kg x 10.000đ = 250.000đ
+        ScrapItem sat = new MetalScrap("M01", "Sắt vụn", 10000, 25.0, MetalType.KIM_LOAI_DEN);
+        // Nhôm: 5kg x 20.000đ = 100.000đ
+        ScrapItem nhom = new MetalScrap("M02", "Nhôm", 20000, 5.0, MetalType.KIM_LOAI_MAU);
+
+        // 2. Tạo giỏ hàng (Cart) chứa đồ khách mang tới
+        // (Nếu file Cart.java của ông dùng cấu trúc khác thì điều chỉnh nhẹ chỗ này nhé)
+        Cart cart = new Cart();
+        cart.getCart().add(new CartItem(sat));
+        cart.getCart().add(new CartItem(nhom));
+
+        // 3. Lập phiếu thu mua (PurchaseOrder) cho khách hàng
+        PurchaseOrder order = new PurchaseOrder("PL001", "Nguyễn Văn Thoáng", cart);
+
+        // 4. Chọn hình thức thanh toán cho khách
+        Payment paymentMethod = new CashPayment("Kế toán trưởng");
+
+        // 5. Khởi tạo Hóa đơn (Invoice) và in ra màn hình
+        Invoice invoice = new Invoice("INV-999", order, paymentMethod);
+        invoice.printInvoice();
     }
 }
 

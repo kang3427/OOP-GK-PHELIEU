@@ -43,6 +43,13 @@ public class PurchaseOrder {
         return tong;
     }
 
+    public String getCustomer() {
+        return this.customer;
+    }
+    public List<PurchaseOrderItem> getItems() {
+        return this.order;
+    }
+
     public void showOrder(){
         System.out.println("====== Hóa đơn của bạn là ======");
         if (order.isEmpty()){
