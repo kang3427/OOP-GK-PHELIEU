@@ -9,8 +9,8 @@ package model;
 public abstract class ScrapItem {
     private final String id;
     private final String name;
-    private double pricePerKg;
-    private double weight;
+    private double pricePerKg;// Giá trên 1kg
+    private double weight; //Cân nặng
 
     public ScrapItem(String id,String name, double pricePerKg, double weight){
         if (id == null || name == null || pricePerKg <=0 || weight <0
@@ -31,7 +31,7 @@ public abstract class ScrapItem {
     public String toString() {
         return "Phế liệu: " + this.name +
                 " | Giá: " + this.pricePerKg +
-                " | Tồn: " + this.weight;
+                " | Cân nặng: " + this.weight;
     }
 
     public void setPricePerKg(double pricePerKg){
