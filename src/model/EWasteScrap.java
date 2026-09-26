@@ -8,7 +8,7 @@ import enums.EWasteType;
 
 public class EWasteScrap extends ScrapItem {
     private EWasteType type;
-    protected EWasteScrap(String id, String name, double pricePerKg, double weight, EWasteType type) {
+    public EWasteScrap(String id, String name, double pricePerKg, double weight, EWasteType type) {
         super(id, name, pricePerKg, weight);
         this.type = type;
     }

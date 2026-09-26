@@ -18,4 +18,9 @@ public class ScrapFilter { // lớp lọc phế phẩm
                 .filter(condition)      // Áp dụng điều kiện lọc
                 .toList();              // Thu thập kết quả trả về một List mới
     }
+    public double TotalWeight(List<ScrapItem> items) {// tính tổng khối lượng phế liệu có trong kho
+        return items.stream()
+                .mapToDouble(i -> i.getWeight())
+                .sum();
+    }
 }
