@@ -1,15 +1,4 @@
-
 package model;
-
-
-public abstract class ScrapItem {
-    private final String id;
-    private final String name;
-    private final double pricePerKg;
-    private final double weight;
-  
-package GiuaKi;
-
 
 public abstract class ScrapItem {
     private final String id;
@@ -17,7 +6,7 @@ public abstract class ScrapItem {
     private double pricePerKg;
     private double weight;
 
-    protected ScrapItem(String id,String name, double pricePerKg, double weight){
+    public ScrapItem(String id,String name, double pricePerKg, double weight){
         if (id == null || name == null || pricePerKg <=0 || weight <0
                 || id.trim().isEmpty() || name.trim().isEmpty()){
             throw new IllegalArgumentException("Thông tin Phế Liệu KHÔNG phù hợp"); }
@@ -32,16 +21,12 @@ public abstract class ScrapItem {
     public double getPricePerKg(){ return pricePerKg; }
     public double getWeight(){ return weight; }
 
-
-    public abstract void displayInfo();
     @Override
     public String toString() {
         return "Phế liệu: " + this.name +
                 " | Giá: " + this.pricePerKg +
                 " | Tồn: " + this.weight;
     }
-}
-
 
     public void setPricePerKg(double pricePerKg){
         this.pricePerKg=pricePerKg;
@@ -52,9 +37,4 @@ public abstract class ScrapItem {
     }
 
     public abstract void displayInfo();
-
-    @Override
-    public String toString() {
-        return "Phế liệu: " + this.name +"  Giá: " + this.pricePerKg +" Can nang: " + this.weight;
-    }
 }

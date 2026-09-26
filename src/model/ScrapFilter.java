@@ -1,3 +1,5 @@
+package model;
+
 import java.util.List;
 import java.util.function.Predicate;// Predicate là một Functional Interface trả về True False
 
