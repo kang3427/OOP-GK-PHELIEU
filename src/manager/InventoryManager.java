@@ -1,6 +1,6 @@
 package manager;
 import event.*;
-import model.ScrapItem;
+import model.*;
 import java.util.List;
 
 /**
