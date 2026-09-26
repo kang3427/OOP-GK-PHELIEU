@@ -1,5 +1,5 @@
 import java.util.List;
-import java.util.function.Predicate;// Predicate là một Functional Interface trả về True False
+import java.util.function.Predicate;// Predicate là một Functional Interface trả về True False dùng để check
 
 public class ScrapFilter { // lớp lọc phế phẩm
     public List<ScrapItem> filter(// filter trả về một ds Scrap
@@ -8,5 +8,10 @@ public class ScrapFilter { // lớp lọc phế phẩm
         return items.stream()           // Chuyển List thành Stream để xử lý
                 .filter(condition)      // Áp dụng điều kiện lọc
                 .toList();              // Thu thập kết quả trả về một List mới
+    }
+    public double TotalWeight(List<ScrapItem> items) {// tính tổng khối lượng phế liệu có trong kho
+        return items.stream()
+                .mapToDouble(i -> i.getWeight())
+                .sum();
     }
 }
