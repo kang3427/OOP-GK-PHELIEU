@@ -1,7 +1,11 @@
 package model;
-
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Lớp đại diện cho Giỏ hàng / Phiếu cân gom tạm thời.
+ * Lưu giữ danh sách các mặt hàng (CartItem) đang được tiếp nhận và cân đếm trước khi tiến hành chốt đơn mua chính thức.
+ */
 
 public class Cart {
     private List<CartItem> items= new ArrayList<>(); //Tạo mảng lưu các phế liệu

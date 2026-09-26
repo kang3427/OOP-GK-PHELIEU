@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-
+import manager.ScrapFilter;
 import payment.*;
 import model.*;
 import enums.*;

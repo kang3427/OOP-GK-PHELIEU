@@ -1,6 +1,12 @@
 package model;
 import enums.MetalType;
 
+/**
+ * Lớp đại diện cho phế liệu kim loại (sắt, thép, đồng, nhôm...), kế thừa từ ScrapItem.
+ * Quản lý thêm chủng loại kim loại (MetalType - Kim loại đen / Kim loại màu)
+ * để tính toán đơn giá chuẩn và phân loại lưu kho.
+ */
+
 public class MetalScrap extends ScrapItem {
     private MetalType type;
 
