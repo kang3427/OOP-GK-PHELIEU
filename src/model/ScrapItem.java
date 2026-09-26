@@ -25,7 +25,7 @@ public abstract class ScrapItem {
     public String toString() {
         return "Phế liệu: " + this.name +
                 " | Giá: " + this.pricePerKg +
-                " | Tồn: " + this.weight;
+                " | Cân nặng: " + this.weight;
     }
 
     public void setPricePerKg(double pricePerKg){
