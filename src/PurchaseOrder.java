@@ -36,4 +36,20 @@ public class PurchaseOrder {
         return tong;
     }
 
+    public void showOrder(){
+        System.out.println("====== Hóa đơn của bạn là ======");
+        if (order.isEmpty()){
+            System.out.println("Hóa đơn không có gì");
+        }
+        else{
+            System.out.println("Mã ID: " + orderId);
+            System.out.println("Tên khách hàng : " + customer);
+            System.out.println("Trạng thái : " + status);
+            for (PurchaseOrderItem x: order){
+                System.out.println(x.getItem().getName()+ " "+x.getItem().getWeight()+" thành tiền: "+x.calPrice());
+            }
+            System.out.println("------------------------------------------------------------------");
+            System.out.println("TỔNG TIỀN: " + calTotal() + " VNĐ");
+        }
+    }
 }
