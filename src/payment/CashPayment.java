@@ -7,17 +7,17 @@ package payment;
  */
 
 public class CashPayment implements Payment{
-    private String ten_ThuNgan;
-    public CashPayment(String ten_ThuNgan) {
-        this.ten_ThuNgan = ten_ThuNgan;
+    private String tenThuNgan;
+    public CashPayment(String tenThuNgan) {
+        this.tenThuNgan = tenThuNgan;
     }
     @Override
     public void pay(double So_Tien) {
         System.out.println("[Thanh toan tien mat] cho khach hang:"
-                + So_Tien + " Thu ngan: " + ten_ThuNgan);
+                + So_Tien + " Thu ngan: " + tenThuNgan);
     }
     @Override
     public String getPayment() {
-        return "Tien mat (Thu ngan: " + ten_ThuNgan+")";
+        return "Tien mat (Thu ngan: " + tenThuNgan+")";
     }
 }
