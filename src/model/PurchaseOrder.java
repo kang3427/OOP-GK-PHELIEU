@@ -1,13 +1,20 @@
-package GiuaKi;
+package model;
+import enums.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Lớp đại diện cho Phiếu thu mua phế liệu chính thức.
+ * Lưu trữ thông tin toàn bộ giao dịch: khách hàng bán, danh sách chi tiết hàng (PurchaseOrderItem),
+ * tổng tiền phải thanh toán, trạng thái phiếu (OrderStatus) và thời gian lập phiếu.
+ */
 
 public class PurchaseOrder {
     private String orderId;
     private String customer;
     private List<PurchaseOrderItem> order = new ArrayList<>();
-    private orderStatus status= orderStatus.PENDING;
+    private OrderStatus status= OrderStatus.PENDING;
 
     public void addItem(ScrapItem item) {
         order.add(new PurchaseOrderItem(item));
@@ -20,7 +27,7 @@ public class PurchaseOrder {
     public PurchaseOrder(String orderId, String customer, Cart cart) {
         this.orderId = orderId;
         this.customer = customer;
-        this.status = orderStatus.PROCESSING;
+        this.status = OrderStatus.PROCESSING;
 
         for (CartItem x: cart.getCart()){
             ScrapItem i = x.getItem();
@@ -34,6 +41,13 @@ public class PurchaseOrder {
             tong+=x.calPrice();
         }
         return tong;
+    }
+
+    public String getCustomer() {
+        return this.customer;
+    }
+    public List<PurchaseOrderItem> getItems() {
+        return this.order;
     }
 
     public void showOrder(){
