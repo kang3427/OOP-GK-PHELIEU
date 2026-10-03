@@ -6,23 +6,23 @@ package model;
  */
 
 public class ChiTietGioHang {
-    private PheLieu item;
+    private PheLieu pheLieu;
     private double pricePerKgNow;
 
-    public ChiTietGioHang(PheLieu item) {
-        this.item = item;
+    public ChiTietGioHang(PheLieu pheLieu) {
+        this.pheLieu = pheLieu;
     }
 
-    public ChiTietGioHang(PheLieu item, double pricePerKgNow) {
-        this.item = item;
-        item.setPricePerKg(pricePerKgNow);
+    public ChiTietGioHang(PheLieu pheLieu, double donGiaHienTai) {
+        this.pheLieu = pheLieu;
+        pheLieu.setPricePerKg(donGiaHienTai);
     }
 
-    public PheLieu getItem() {
-        return item;
+    public PheLieu getPheLieu() {
+        return pheLieu;
     }
 
-    public double calPrice() {
-        return item.getDonGia() * item.getKhoiLuong();
+    public double tinhTien() {
+        return pheLieu.getDonGia() * pheLieu.getKhoiLuong();
     }
 }

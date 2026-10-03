@@ -11,56 +11,56 @@ import java.util.List;
  */
 
 public class DonThuMua {
-    private String orderId;
-    private String customer;
-    private List<ChiTietDonThuMua> order = new ArrayList<>();
-    private TrangThaiDonHang status= TrangThaiDonHang.CHO_XULI;
+    private String maDon;
+    private String khachHang;
+    private List<ChiTietDonThuMua> danhSachMatHang = new ArrayList<>();
+    private TrangThaiDonHang trangThai = TrangThaiDonHang.CHO_XULI;
 
-    public void addItem(PheLieu item) {
-        order.add(new ChiTietDonThuMua(item));
+    public void themMatHang(PheLieu pheLieu) {
+        danhSachMatHang.add(new ChiTietDonThuMua(pheLieu));
     }
 
-    public void removeItem(String id) {
-        order.removeIf(OrderItem -> OrderItem.getPheLieu().getId().equals(id));
+    public void xoaMatHang(String ma) {
+        danhSachMatHang.removeIf(chiTiet -> chiTiet.getPheLieu().getMa().equals(ma));
     }
 
-    public DonThuMua(String orderId, String customer, GioHang cart) {
-        this.orderId = orderId;
-        this.customer = customer;
-        this.status = TrangThaiDonHang.DANG_XULI;
+    public DonThuMua(String maDon, String khachHang, GioHang gioHang) {
+        this.maDon = maDon;
+        this.khachHang = khachHang;
+        this.trangThai = TrangThaiDonHang.DANG_XULI;
 
-        for (ChiTietGioHang x: cart.layDanhSach()){
-            PheLieu i = x.getItem();
-            this.addItem(i);
+        for (ChiTietGioHang x: gioHang.layDanhSach()){
+            PheLieu i = x.getPheLieu();
+            this.themMatHang(i);
         }
     }
 
     public double tinhTongTien(){
         double tong=0;
-        for (ChiTietDonThuMua x: order){
-            tong+=x.calPrice();
+        for (ChiTietDonThuMua x: danhSachMatHang){
+            tong+=x.tinhTien();
         }
         return tong;
     }
 
-    public String getCustomer() {
-        return this.customer;
+    public String getKhachHang() {
+        return this.khachHang;
     }
     public List<ChiTietDonThuMua> layDanhSachMatHang() {
-        return this.order;
+        return this.danhSachMatHang;
     }
 
     public void showOrder(){
         System.out.println("====== Hóa đơn của bạn là ======");
-        if (order.isEmpty()){
+        if (danhSachMatHang.isEmpty()){
             System.out.println("Hóa đơn không có gì");
         }
         else{
-            System.out.println("Mã ID: " + orderId);
-            System.out.println("Tên khách hàng : " + customer);
-            System.out.println("Trạng thái : " + status);
-            for (ChiTietDonThuMua x: order){
-                System.out.println(x.getPheLieu().getTen()+ " "+x.getPheLieu().getKhoiLuong()+" thành tiền: "+x.calPrice());
+            System.out.println("Mã ID: " + maDon);
+            System.out.println("Tên khách hàng : " + khachHang);
+            System.out.println("Trạng thái : " + trangThai);
+            for (ChiTietDonThuMua x: danhSachMatHang){
+                System.out.println(x.getPheLieu().getTen()+ " "+x.getPheLieu().getKhoiLuong()+" thành tiền: "+x.tinhTien());
             }
             System.out.println("------------------------------------------------------------------");
             System.out.println("TỔNG TIỀN: " + tinhTongTien() + " VNĐ");
