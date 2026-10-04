@@ -19,5 +19,6 @@ public class TienMat implements ThanhToan {
     @Override
     public String layTenPhuongThuc() {
         return "Tiền mặt (Thu ngân: " + ten_ThuNgan+")";
+
     }
 }
