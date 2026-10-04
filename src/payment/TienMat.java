@@ -6,18 +6,19 @@ package payment;
  *   chi trả tiền mặt tức thì cho khách vãng lai hoặc hộ gom nhỏ lẻ.
  */
 
-public class CashPayment implements Payment{
+public class TienMat implements ThanhToan {
     private String ten_ThuNgan;
-    public CashPayment(String ten_ThuNgan) {
+    public TienMat(String ten_ThuNgan) {
         this.ten_ThuNgan = ten_ThuNgan;
     }
     @Override
-    public void pay(double So_Tien) {
-        System.out.println("[Thanh toan tien mat] cho khach hang:"
-                + So_Tien + " Thu ngan: " + ten_ThuNgan);
+    public void Thanhtoan(double So_Tien) {
+        System.out.println("[Thanh Toán Tiền Mặt] cho khách hàng:"
+                + So_Tien + " Thu ngân: " + ten_ThuNgan);
     }
     @Override
-    public String getPayment() {
-        return "Tien mat (Thu ngan: " + ten_ThuNgan+")";
+    public String layTenPhuongThuc() {
+        return "Tiền mặt (Thu ngân: " + ten_ThuNgan+")";
+
     }
 }
