@@ -1,4 +1,4 @@
-package event;
+package Event;
 
 /**
  * Lớp đại diện cho một sự kiện diễn ra trong vựa phế liệu (Event Object).

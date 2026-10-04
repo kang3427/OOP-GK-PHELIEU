@@ -1,10 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< Updated upstream
 import manager.ScrapFilter;
+=======
+import manager.BoLocPheLieu;
+import manager.TonKhoPheLieu;
+>>>>>>> Stashed changes
 import payment.*;
 import model.*;
 import enums.*;
-import event.*;
+import Event.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -111,9 +116,74 @@ public class Main {
         Payment paymentMethod = new CashPayment("Kế toán trưởng");
 
         // 5. Khởi tạo Hóa đơn (Invoice) và in ra màn hình
+<<<<<<< Updated upstream
         Invoice invoice = new Invoice("INV-999", order, paymentMethod);
         invoice.printInvoice();
+=======
+        HoaDon invoice = new HoaDon("INV-999", order, paymentMethod);
+        invoice.InHoaDon();
+
+        // ==========================================
+        // PHẦN 5: KIỂM THỬ QUẢN LÝ KHO (TonKhoPheLieu)
+        // ==========================================
+        System.out.println("\n========== KIỂM THỬ QUẢN LÝ KHO ==========");
+
+        // Kho sắt vụn: đang có 100kg, sức chứa tối đa 150kg
+        TonKhoPheLieu kho = new TonKhoPheLieu("M01", 100, 150);
+
+        QuanLiSuKien suKienKho = new QuanLiSuKien();
+        suKienKho.subscribe(e ->
+                System.out.println("[CẢNH BÁO KHO - " + e.getLoaisukien() + "] " + e.getNoidung()));
+
+        System.out.println("--- 1. Tồn kho ban đầu ---");
+        System.out.println("Tồn kho: " + kho.kiemTraTonKho() + " kg (mong đợi: 100.0)");
+
+        System.out.println("\n--- 2. Nhập kho 30kg (chưa vượt sức chứa) ---");
+        kho.NhapKho(30, suKienKho);
+        System.out.println("Tồn kho: " + kho.kiemTraTonKho() + " kg (mong đợi: 130.0)");
+
+        System.out.println("\n--- 3. Nhập kho 40kg (vượt sức chứa, có EventManager) ---");
+        kho.NhapKho(40, suKienKho);
+        System.out.println("Tồn kho: " + kho.kiemTraTonKho() + " kg (mong đợi: 170.0)");
+
+        System.out.println("\n--- 4. Nhập kho 10kg (vượt sức chứa, không EventManager) ---");
+        kho.NhapKho(10);
+        System.out.println("Tồn kho: " + kho.kiemTraTonKho() + " kg (mong đợi: 180.0)");
+
+        System.out.println("\n--- 5. Xuất kho 80kg ---");
+        kho.XuatKho(80);
+        System.out.println("Tồn kho: " + kho.kiemTraTonKho() + " kg (mong đợi: 100.0)");
+
+        System.out.println("\n--- 6. Xuất kho 500kg (quá tồn, phải báo lỗi) ---");
+        thuNghiem(() -> kho.XuatKho(500));
+        System.out.println("Tồn kho: " + kho.kiemTraTonKho() + " kg (mong đợi: vẫn 100.0)");
+
+        System.out.println("\n--- 7. Nhập kho -5kg (không hợp lệ) ---");
+        thuNghiem(() -> kho.NhapKho(-5));
+
+        System.out.println("\n--- 8. Xuất kho 0kg (không hợp lệ) ---");
+        thuNghiem(() -> kho.XuatKho(0));
+
+        System.out.println("\n--- 9. Cập nhật tồn kho = 50kg ---");
+        kho.CapNhatTonKho(50);
+        System.out.println("Tồn kho: " + kho.kiemTraTonKho() + " kg (mong đợi: 50.0)");
+
+        System.out.println("\n--- 10. Cập nhật tồn kho = -1kg (không hợp lệ) ---");
+        thuNghiem(() -> kho.CapNhatTonKho(-1));
+
+        System.out.println("\n--- 11. Xuất đúng bằng số tồn (50kg) ---");
+        kho.XuatKho(50);
+        System.out.println("Tồn kho: " + kho.kiemTraTonKho() + " kg (mong đợi: 0.0)");
+>>>>>>> Stashed changes
+    }
+
+    // Chạy một thao tác và in ra lỗi nếu có
+    private static void thuNghiem(Runnable hanhDong) {
+        try {
+            hanhDong.run();
+            System.out.println("KHÔNG có lỗi (không như mong đợi)");
+        } catch (IllegalArgumentException ex) {
+            System.out.println("Bắt được lỗi đúng như mong đợi: " + ex.getMessage());
+        }
     }
 }
-
-

@@ -1,4 +1,4 @@
-package event;
+package Event;
 
 /**
  * Interface định nghĩa bộ lắng nghe sự kiện (Subscriber / Observer).
