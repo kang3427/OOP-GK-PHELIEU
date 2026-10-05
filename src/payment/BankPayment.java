@@ -1,4 +1,5 @@
 package payment;
+import model.Employee;
 
 /**
  * Triển khai phương thức thanh toán qua Chuyển khoản Ngân hàng (Bank Transfer).
@@ -11,19 +12,34 @@ public class BankPayment implements Payment{
     private String soTaiKhoan;
     private String tenTaiKhoan;
     private String payId;
+    private Employee employee;
+
+    public BankPayment(String nganHang, String soTaiKhoan, String tenTaiKhoan, String payId, Employee employee) {
+        this.nganHang = nganHang;
+        this.soTaiKhoan = soTaiKhoan;
+        this.tenTaiKhoan = tenTaiKhoan;
+        this.payId = payId;
+        this.employee = employee;
+    }
     public BankPayment(String nganHang, String soTaiKhoan, String tenTaiKhoan, String payId) {
         this.nganHang = nganHang;
         this.soTaiKhoan = soTaiKhoan;
         this.tenTaiKhoan = tenTaiKhoan;
         this.payId = payId;
     }
+
     @Override
     public void pay(double So_Tien) {
         System.out.println("[Chuyen khoan ngan hang] cho  khach hang:"
-                + So_Tien +" "+ nganHang +" "+ soTaiKhoan +" "+ tenTaiKhoan + " Ma giao dich: " + payId);
+                + So_Tien +" "+ nganHang +" "+ soTaiKhoan +" "+ tenTaiKhoan + " " + payId);
     }
     @Override
     public String getPayment() {
-        return "Ngan hang: "+nganHang +" So tai khoan: "+ soTaiKhoan + " Ma giao dich: " + payId;
+        String thongTinNv="";
+        if (employee!=null)
+        {
+            thongTinNv=employee.getThongTin();
+        }
+        return "Ngan hang: "+nganHang +" So tai khoan: "+ soTaiKhoan + " Ma giao dich: " + payId +"\n"+ thongTinNv;
     }
 }

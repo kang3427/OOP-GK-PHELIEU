@@ -1,4 +1,5 @@
 package payment;
+import model.Employee;
 
 /**
  * Triển khai phương thức thanh toán qua Ví điện tử (MoMo, ZaloPay, Viettel Money...).
@@ -10,19 +11,35 @@ public class EWalletPayment implements Payment{
     private String viDienTu;
     private String soTaiKhoan;
     private String payId;
+    private Employee employee;
+    private String tenTaiKhoan;
 
-    public EWalletPayment(String viDienTu, String soTaiKhoan, String payId) {
+    public EWalletPayment(String viDienTu, String soTaiKhoan, String tenTaiKhoan, String payId, Employee employee) {
         this.viDienTu = viDienTu;
         this.soTaiKhoan = soTaiKhoan;
         this.payId = payId;
+        this.employee = employee;
+        this.tenTaiKhoan = tenTaiKhoan;
     }
+    public EWalletPayment(String viDienTu, String soTaiKhoan, String tenTaiKhoan, String payId) {
+        this.viDienTu = viDienTu;
+        this.soTaiKhoan = soTaiKhoan;
+        this.payId = payId;
+        this.tenTaiKhoan = tenTaiKhoan;
+    }
+
     @Override
     public void pay(double So_Tien) {
         System.out.println("[Thanh toan vi dien tu] cho khach hang:"
-        + So_Tien +" "+ viDienTu +" "+ soTaiKhoan + " Ma giao dich: " + payId);
+        + So_Tien +" "+ viDienTu +" "+ soTaiKhoan + " "+ tenTaiKhoan + " " + payId);
     }
     @Override
     public String getPayment(){
-        return "Vi dien tu: "+viDienTu+" So tai khoan: "+ soTaiKhoan + " Ma giao dich: " + payId;
+        String thongTinNv="";
+        if (employee!=null)
+        {
+            thongTinNv=employee.getThongTin();
+        }
+        return "Vi dien tu: "+viDienTu+" So tai khoan: "+ soTaiKhoan + " Ma giao dich: " + payId + " Ten tai khoan: "+ tenTaiKhoan +"\n"+ thongTinNv;
     }
 }
