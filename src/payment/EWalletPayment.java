@@ -9,17 +9,20 @@ package payment;
 public class EWalletPayment implements Payment{
     private String viDienTu;
     private String soTaiKhoan;
-    public EWalletPayment(String viDienTu, String soTaiKhoan) {
+    private String payId;
+
+    public EWalletPayment(String viDienTu, String soTaiKhoan, String payId) {
         this.viDienTu = viDienTu;
         this.soTaiKhoan = soTaiKhoan;
+        this.payId = payId;
     }
     @Override
     public void pay(double So_Tien) {
         System.out.println("[Thanh toan vi dien tu] cho khach hang:"
-        + So_Tien +" "+ viDienTu +" "+ soTaiKhoan);
+        + So_Tien +" "+ viDienTu +" "+ soTaiKhoan + " Ma giao dich: " + payId);
     }
     @Override
     public String getPayment(){
-        return "Vi dien tu: "+viDienTu+" So tai khoan: "+ soTaiKhoan;
+        return "Vi dien tu: "+viDienTu+" So tai khoan: "+ soTaiKhoan + " Ma giao dich: " + payId;
     }
 }

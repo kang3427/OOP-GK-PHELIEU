@@ -42,9 +42,9 @@ public class Main {
         // ==========================================
         System.out.println("\n========== KIỂM THỬ THANH TOÁN ==========");
 
-        Payment p1 = new CashPayment("Nguyen Hoang Luan");
-        Payment p2 = new BankPayment("Vietcombank", "1012345678", "NGUYEN VAN A");
-        Payment p3 = new EWalletPayment("MoMo", "0909123456");
+        Payment p1 = new CashPayment("Nguyen Hoang Luan","8972964179");
+        Payment p2 = new BankPayment("Vietcombank", "1012345678", "NGUYEN VAN A","9872461857");
+        Payment p3 = new EWalletPayment("MoMo", "0909123456","8632174927");
 
         p1.pay(300000);
         p2.pay(300000);
@@ -140,7 +140,7 @@ public class Main {
         cart.addItem(nhom);
 
         PurchaseOrder order = new PurchaseOrder("PL001", "Nguyễn Văn Thoáng", cart);
-        Payment paymentMethod = new CashPayment("Kế toán trưởng");
+        Payment paymentMethod = new CashPayment("Kế toán trưởng", "8320487362");
 
         Invoice invoice = new Invoice("INV-999", order, paymentMethod);
         invoice.printInvoice();

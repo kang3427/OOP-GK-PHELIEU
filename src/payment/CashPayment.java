@@ -8,16 +8,19 @@ package payment;
 
 public class CashPayment implements Payment{
     private String tenThuNgan;
-    public CashPayment(String tenThuNgan) {
+    private String payId;
+
+    public CashPayment(String tenThuNgan,  String payId) {
         this.tenThuNgan = tenThuNgan;
+        this.payId = payId;
     }
     @Override
     public void pay(double So_Tien) {
         System.out.println("[Thanh toan tien mat] cho khach hang:"
-                + So_Tien + " Thu ngan: " + tenThuNgan);
+                + So_Tien + " Thu ngan: " + tenThuNgan + " Ma giao dich: " + payId);
     }
     @Override
     public String getPayment() {
-        return "Tien mat (Thu ngan: " + tenThuNgan+")";
+        return "Tien mat (Thu ngan: " + tenThuNgan+")" + " Ma giao dich: " + payId;
     }
 }
