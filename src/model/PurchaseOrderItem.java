@@ -35,7 +35,7 @@ public class PurchaseOrderItem {
     public ScrapItem getItem(){ return item; }
     public double getPricePerKgNow() { return pricePerKgNow; }
     public double calPrice() {
-        return item.getPricePerKg() * item.getWeight();
+        return pricePerKgNow * item.getWeight();
     }
     public double getWeightKg() {
         return item.getWeight();

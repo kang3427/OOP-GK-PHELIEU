@@ -10,8 +10,9 @@ public abstract class Customer {
     private final String name;
     private final String phone;
     private final String address;
+    private CustomerType customerType;
 
-    public Customer(String customerId, String name, String phone, String address) {
+    public Customer(String customerId, String name, String phone, String address, CustomerType customerType) {
         // 1. Kiểm tra Mã khách hàng (customerId)
         if (customerId == null || customerId.trim().isEmpty()) {
             throw new IllegalArgumentException("Mã khách hàng không được để trống!");
@@ -31,11 +32,16 @@ public abstract class Customer {
         if (address == null || address.trim().isEmpty()) {
             throw new IllegalArgumentException("Địa chỉ không được để trống!");
         }
+        // 5.Kiểm tra loại khách
+        if (customerType == null) {
+            throw new IllegalArgumentException("Loại khách hàng không được để trống!");
+        }
 
         this.customerId = customerId.trim();
         this.name = name.trim();
         this.phone = phone.trim();
         this.address = address.trim();
+        this.customerType = customerType;
     }
 
     public abstract void displayInfo();
