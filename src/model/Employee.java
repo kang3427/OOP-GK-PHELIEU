@@ -4,17 +4,19 @@ import java.util.ArrayList;
 
 public class Employee {
     private String tenNhanVien;
+    private String idNhanVien;
     private String sdt;
     private List<String> diaChi=new ArrayList<>();
 
-    public Employee(String tenNhanVien, String sdt, List<String> diaChi) {
+    public Employee(String idNhanVien, String tenNhanVien, String sdt, List<String> diaChi) {
         this.tenNhanVien = tenNhanVien;
         this.diaChi = diaChi;
         this.sdt = sdt;
+        this.idNhanVien = idNhanVien;
     }
     // Phương thức lấy thông tin hiển thị cả tên và danh sách địa chỉ
     public String getThongTin() {
-        String kq = "Ten nhan vien: " + tenNhanVien + " So dien thoai: " + sdt + " Dia chi: ";
+        String kq = "Id: " + idNhanVien + " Ten nhan vien: " + tenNhanVien + " So dien thoai: " + sdt + " Dia chi: ";
         for (String dc : diaChi) {
             kq += dc + "; ";
         }
