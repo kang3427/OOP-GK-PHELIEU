@@ -21,25 +21,14 @@ public class EWalletPayment implements Payment{
         this.employee = employee;
         this.tenTaiKhoan = tenTaiKhoan;
     }
-    public EWalletPayment(String viDienTu, String soTaiKhoan, String tenTaiKhoan, String payId) {
-        this.viDienTu = viDienTu;
-        this.soTaiKhoan = soTaiKhoan;
-        this.payId = payId;
-        this.tenTaiKhoan = tenTaiKhoan;
-    }
 
     @Override
     public void pay(double So_Tien) {
         System.out.println("[Thanh toan vi dien tu] cho khach hang:"
-        + So_Tien +" "+ viDienTu +" "+ soTaiKhoan + " "+ tenTaiKhoan + " " + payId);
+        + So_Tien +" "+ viDienTu +" "+ soTaiKhoan + " "+ tenTaiKhoan + " " + payId +" nv: "+employee.getThongTin());
     }
     @Override
     public String getPayment(){
-        String thongTinNv="";
-        if (employee!=null)
-        {
-            thongTinNv=employee.getThongTin();
-        }
-        return "Vi dien tu: "+viDienTu+" So tai khoan: "+ soTaiKhoan + " Ma giao dich: " + payId + " Ten tai khoan: "+ tenTaiKhoan +"\n"+ thongTinNv;
+        return "Vi dien tu: "+viDienTu+" So tai khoan: "+ soTaiKhoan + " Ma giao dich: " + payId + " Ten tai khoan: "+ tenTaiKhoan +"\n"+ employee.getThongTin();
     }
 }

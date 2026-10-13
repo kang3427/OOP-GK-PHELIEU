@@ -17,23 +17,14 @@ public class CashPayment implements Payment{
         this.employee = employee;
         this.tenKhachHang = tenKhachHang;
     }
-    public CashPayment(String tenKhachHang, String payId) {
-        this.payId = payId;
-        this.tenKhachHang = tenKhachHang;
-    }
 
     @Override
     public void pay(double So_Tien) {
         System.out.println("[Thanh toan tien mat] cho khach hang:"
-                + So_Tien +" "+ tenKhachHang + " " + payId);
+                + So_Tien +" "+ tenKhachHang + " " + payId +" nv: "+employee.getThongTin());
     }
     @Override
     public String getPayment() {
-        String thongTinNv="";
-        if (employee!=null)
-        {
-            thongTinNv=employee.getThongTin();
-        }
-        return " Ten khach hang: "+ tenKhachHang + "Ma giao dich: " + payId +"\n"+ thongTinNv;
+        return " Ten khach hang: "+ tenKhachHang + "Ma giao dich: " + payId +"\n"+ employee.getThongTin();
     }
 }

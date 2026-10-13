@@ -21,25 +21,14 @@ public class BankPayment implements Payment{
         this.payId = payId;
         this.employee = employee;
     }
-    public BankPayment(String nganHang, String soTaiKhoan, String tenTaiKhoan, String payId) {
-        this.nganHang = nganHang;
-        this.soTaiKhoan = soTaiKhoan;
-        this.tenTaiKhoan = tenTaiKhoan;
-        this.payId = payId;
-    }
 
     @Override
     public void pay(double So_Tien) {
         System.out.println("[Chuyen khoan ngan hang] cho  khach hang:"
-                + So_Tien +" "+ nganHang +" "+ soTaiKhoan +" "+ tenTaiKhoan + " " + payId);
+                + So_Tien +" "+ nganHang +" "+ soTaiKhoan +" "+ tenTaiKhoan + " " + payId +" nv: "+employee.getThongTin());
     }
     @Override
     public String getPayment() {
-        String thongTinNv="";
-        if (employee!=null)
-        {
-            thongTinNv=employee.getThongTin();
-        }
-        return "Ngan hang: "+nganHang +" So tai khoan: "+ soTaiKhoan + " Ma giao dich: " + payId +"\n"+ thongTinNv;
+        return "Ngan hang: "+nganHang +" So tai khoan: "+ soTaiKhoan + " Ma giao dich: " + payId +"\n"+ employee.getThongTin();
     }
 }
