@@ -59,4 +59,5 @@ public class Cart {
     }
 
     public List<CartItem> getCart(){ return items; }
+    public String getCardId() {return cardId;}
 }
