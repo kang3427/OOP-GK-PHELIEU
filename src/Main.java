@@ -41,8 +41,8 @@ public class Main {
         // PHẦN 2: KIỂM THỬ TÍNH NĂNG THANH TOÁN (POLYMORPHISM)
         // ==========================================
         System.out.println("\n========== KIỂM THỬ THANH TOÁN ==========");
-
-        Payment p1 = new CashPayment("Nguyen Hoang Luan","8972964179",new Employee( "id111","nguyen van a","07782642552",List.of("xom 1","van tuong")));
+        Employee nv1= new Employee("id111","nguyen hoang luan", "0325728429", List.of("xom 1","van tuong"));
+        Payment p1 = new CashPayment("Nguyen Hoang Luan","8972964179",nv1);
         Payment p2 = new BankPayment("Vietcombank", "1012345678", "NGUYEN VAN A","9872461857",new Employee("id112","nguyen van a","07782642552",List.of("xom 1","van tuong")));
         Payment p3 = new EWalletPayment("MoMo", "0909123456","nguyen the khang","7493384957",new Employee("id113", "nguyen van a","07782642552",List.of("xom 1","van tuong")));
 
