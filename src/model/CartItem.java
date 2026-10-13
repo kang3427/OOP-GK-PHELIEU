@@ -10,12 +10,26 @@ public class CartItem {
     private double pricePerKgNow;
 
     public CartItem(ScrapItem item) {
+        // 1. Kiểm tra mặt hàng phế liệu không được null
+        if (item == null) {
+            throw new IllegalArgumentException("Mặt hàng phế liệu (item) không được để trống!");
+        }
         this.item = item;
     }
 
     public CartItem(ScrapItem item, double pricePerKgNow) {
+        // 1. Kiểm tra mặt hàng phế liệu không được null
+        if (item == null) {
+            throw new IllegalArgumentException("Mặt hàng phế liệu (item) không được để trống!");
+        }
+
+        // 2. Kiểm tra đơn giá chốt tại thời điểm mua phải lớn hơn 0
+        if (pricePerKgNow <= 0) {
+            throw new IllegalArgumentException("Đơn giá mới (pricePerKgNow) phải lớn hơn 0 VNĐ/kg!");
+        }
+
         this.item = item;
-        item.setPricePerKg(pricePerKgNow);
+        this.item.setPricePerKg(pricePerKgNow);
     }
 
     public ScrapItem getItem() {

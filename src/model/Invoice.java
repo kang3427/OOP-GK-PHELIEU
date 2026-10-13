@@ -13,7 +13,22 @@ public class Invoice {
     private Payment paymentMethod;
 
     public Invoice(String invoiceId, PurchaseOrder purchaseOrder, Payment paymentMethod) {
-        this.invoiceId = invoiceId;
+        // 1. Kiểm tra Mã hóa đơn (invoiceId) không được null hoặc rỗng
+        if (invoiceId == null || invoiceId.trim().isEmpty()) {
+            throw new IllegalArgumentException("Mã hóa đơn (invoiceId) không được để trống!");
+        }
+
+        // 2. Kiểm tra Đơn thu mua (purchaseOrder) không được null
+        if (purchaseOrder == null) {
+            throw new IllegalArgumentException("Đơn thu mua (purchaseOrder) không được để trống!");
+        }
+
+        // 3. Kiểm tra Phương thức thanh toán (paymentMethod) không được null
+        if (paymentMethod == null) {
+            throw new IllegalArgumentException("Phương thức thanh toán (paymentMethod) không được để trống!");
+        }
+
+        this.invoiceId = invoiceId.trim();
         this.purchaseOrder = purchaseOrder;
         this.paymentMethod = paymentMethod;
     }

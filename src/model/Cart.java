@@ -8,7 +8,21 @@ import java.util.List;
  */
 
 public class Cart {
+    private String cardId;
     private List<CartItem> items= new ArrayList<>(); //Tạo mảng lưu các phế liệu
+    public Cart(String cardId) {
+        // 1. Kiểm tra Mã giỏ hàng (cardId/cartId) không được null hoặc rỗng
+        if (cardId == null || cardId.trim().isEmpty()) {
+            throw new IllegalArgumentException("Mã giỏ hàng (cardId) không được để trống!");
+        }
+        this.cardId = cardId.trim();
+        // Danh sách items đã được khởi tạo sẵn (new ArrayList<>()) ở phần khai báo thuộc tính
+    }
+
+    // Bổ sung Constructor không tham số (nếu có sử dụng khởi tạo giỏ hàng trống mặc định)
+    public Cart() {
+        this.cardId = "CART-" + System.currentTimeMillis();
+    }
     // Thêm vào cart
     public void addItem(ScrapItem item) {
         items.add(new CartItem(item));

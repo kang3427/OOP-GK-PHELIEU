@@ -9,10 +9,31 @@ public class Employee {
     private List<String> diaChi=new ArrayList<>();
 
     public Employee(String idNhanVien, String tenNhanVien, String sdt, List<String> diaChi) {
-        this.tenNhanVien = tenNhanVien;
+        // 1. Kiểm tra ID Nhân viên
+        if (idNhanVien == null || idNhanVien.trim().isEmpty()) {
+            throw new IllegalArgumentException("Mã nhân viên không được để trống!");
+        }
+
+        // 2. Kiểm tra Tên nhân viên
+        if (tenNhanVien == null || tenNhanVien.trim().isEmpty()) {
+            throw new IllegalArgumentException("Tên nhân viên không được để trống!");
+        }
+
+        // 3. Kiểm tra Số điện thoại (Không null/rỗng )
+        if (sdt == null || sdt.trim().isEmpty()) {
+            throw new IllegalArgumentException("Số điện thoại không được để trống!");
+        }
+
+
+        // 4. Kiểm tra Danh sách địa chỉ (Không null và không rỗng)
+        if (diaChi == null || diaChi.isEmpty()) {
+            throw new IllegalArgumentException("Danh sách địa chỉ không được để trống!");
+        }
+
+        this.idNhanVien = idNhanVien.trim();
+        this.tenNhanVien = tenNhanVien.trim();
+        this.sdt = sdt.trim();
         this.diaChi = diaChi;
-        this.sdt = sdt;
-        this.idNhanVien = idNhanVien;
     }
     // Phương thức lấy thông tin hiển thị cả tên và danh sách địa chỉ
     public String getThongTin() {

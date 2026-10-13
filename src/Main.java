@@ -135,7 +135,7 @@ public class Main {
         ScrapItem sat = new MetalScrap("M01", "Sắt vụn", 10000, 25.0, MetalType.KIM_LOAI_DEN);
         ScrapItem nhom = new MetalScrap("M02", "Nhôm", 20000, 5.0, MetalType.KIM_LOAI_MAU);
 
-        Cart cart = new Cart();
+        Cart cart = new Cart("CART001");
         cart.addItem(sat);
         cart.addItem(nhom);
 
