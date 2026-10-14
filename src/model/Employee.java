@@ -36,12 +36,15 @@ public class Employee {
         this.diaChi = diaChi;
     }
     // Phương thức lấy thông tin hiển thị cả tên và danh sách địa chỉ
-    public String getThongTin() {
+    public String getThongT() {
         String kq = "Id: " + idNhanVien + " Ten nhan vien: " + tenNhanVien + " So dien thoai: " + sdt + " Dia chi: ";
         for (String dc : diaChi) {
             kq += dc + "; ";
         }
         return kq;
+    }
+    public String getThongTin() {
+        return "Id: " + idNhanVien + " Ten nhan vien: " + tenNhanVien + " So dien thoai: " + sdt;
     }
 
     //getter

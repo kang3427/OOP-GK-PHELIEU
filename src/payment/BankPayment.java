@@ -29,10 +29,10 @@ public class BankPayment implements Payment{
     public void pay(double So_Tien) {
         double T_So_Tien=So_Tien+Reward.calculateReward(0,So_Tien);
         System.out.println("[Chuyen khoan ngan hang] cho  khach hang:"
-                + T_So_Tien +" "+ nganHang +" "+ soTaiKhoan +" "+ tenTaiKhoan + " " + payId +" nv: "+employee.getThongTin());
+                + T_So_Tien +" "+ nganHang +" "+ soTaiKhoan +" "+ tenTaiKhoan + " " + payId +"\n"+ "NV -> " + employee.getThongTin());
     }
     @Override
     public String getPayment() {
-        return "Ngan hang: "+nganHang +" So tai khoan: "+ soTaiKhoan + " Ma giao dich: " + payId +"\n"+ employee.getThongTin();
+        return "Ngan hang: "+nganHang +" So tai khoan: "+ soTaiKhoan + " Ma giao dich: " + payId +"\n"+ employee.getThongT();
     }
 }

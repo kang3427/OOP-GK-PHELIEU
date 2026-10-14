@@ -29,10 +29,10 @@ public class EWalletPayment implements Payment{
     public void pay(double So_Tien) {
         double T_So_Tien=So_Tien+Reward.calculateReward(0,So_Tien);
         System.out.println("[Thanh toan vi dien tu] cho khach hang:"
-        + T_So_Tien +" "+ viDienTu +" "+ soTaiKhoan + " "+ tenTaiKhoan + " " + payId +" nv: "+employee.getThongTin());
+        + T_So_Tien +" "+ viDienTu +" "+ soTaiKhoan + " "+ tenTaiKhoan + " " + payId +"\n"+ "NV -> " + employee.getThongTin());
     }
     @Override
     public String getPayment(){
-        return "Vi dien tu: "+viDienTu+" So tai khoan: "+ soTaiKhoan + " Ma giao dich: " + payId + " Ten tai khoan: "+ tenTaiKhoan +"\n"+ employee.getThongTin();
+        return "Vi dien tu: "+viDienTu+" So tai khoan: "+ soTaiKhoan + " Ma giao dich: " + payId + " Ten tai khoan: "+ tenTaiKhoan +"\n"+ employee.getThongT();
     }
 }

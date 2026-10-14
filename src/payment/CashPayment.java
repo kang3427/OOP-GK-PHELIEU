@@ -25,10 +25,10 @@ public class CashPayment implements Payment{
     public void pay(double So_Tien) {
         double T_So_Tien=So_Tien+Reward.calculateReward(0,So_Tien);
         System.out.println("[Thanh toan tien mat] cho khach hang:"
-                + T_So_Tien +" "+ tenKhachHang + " " + payId +" nv: "+employee.getThongTin());
+                + T_So_Tien +" "+ tenKhachHang + " " + payId +"\n"+ "NV -> " + employee.getThongTin());
     }
     @Override
     public String getPayment() {
-        return " Ten khach hang: "+ tenKhachHang + "Ma giao dich: " + payId +"\n"+ employee.getThongTin();
+        return " Ten khach hang: "+ tenKhachHang + "Ma giao dich: " + payId +"\n"+ employee.getThongT();
     }
 }
