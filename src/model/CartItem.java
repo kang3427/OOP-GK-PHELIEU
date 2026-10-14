@@ -10,10 +10,6 @@ public class CartItem {
     private double pricePerKgNow;
 
     public CartItem(ScrapItem item) {
-        // 1. Kiểm tra mặt hàng phế liệu không được null
-        if (item == null) {
-            throw new IllegalArgumentException("Mặt hàng phế liệu (item) không được để trống!");
-        }
         this(item, item != null ? item.getPricePerKg() : 1.0);
     }
 
