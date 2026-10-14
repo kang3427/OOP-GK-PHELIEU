@@ -1,7 +1,6 @@
 package event;
 
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.ArrayList;
 import java.util.List;
 
 

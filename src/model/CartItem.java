@@ -14,7 +14,7 @@ public class CartItem {
         if (item == null) {
             throw new IllegalArgumentException("Mặt hàng phế liệu (item) không được để trống!");
         }
-        this.item = item;
+        this(item, item != null ? item.getPricePerKg() : 1.0);
     }
 
     public CartItem(ScrapItem item, double pricePerKgNow) {
@@ -32,6 +32,7 @@ public class CartItem {
         this.pricePerKgNow = pricePerKgNow;
     }
 
+    public double  getPricePerKgNow() {return pricePerKgNow;}
     public ScrapItem getItem() {
         return item;
     }

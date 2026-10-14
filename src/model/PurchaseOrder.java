@@ -25,13 +25,21 @@ public class PurchaseOrder {
     }
 
     public PurchaseOrder(String orderId, Customer customer, Cart cart) {
+        if (orderId == null || orderId.trim().isEmpty()) {
+            throw new IllegalArgumentException("Mã đơn hàng không được để trống!");
+        }
+        if (customer == null) {
+            throw new IllegalArgumentException("Khách hàng không được để trống!");
+        }
         this.orderId = orderId;
         this.customer = customer;
         this.status = OrderStatus.PROCESSING;
 
-        for (CartItem x: cart.getCart()){
-            ScrapItem i = x.getItem();
-            this.addItem(i);
+        if (cart != null && cart.getCart() != null) {
+            for (CartItem x : cart.getCart()) {
+                // SỬA DÒNG NÀY: Truyền cả item và pricePerKgNow đã chốt từ giỏ hàng
+                this.order.add(new PurchaseOrderItem(x.getItem(), x.getPricePerKgNow()));
+            }
         }
     }
 
@@ -65,10 +73,10 @@ public class PurchaseOrder {
         }
         else{
             System.out.println("Mã ID: " + orderId);
-            System.out.println("Tên khách hàng : " + customer);
+            System.out.println("Tên khách hàng : " + (customer != null ? customer.getName() : "Khách vãng lai"));
             System.out.println("Trạng thái : " + status);
-            for (PurchaseOrderItem x: order){
-                System.out.println(x.getItem().getName()+ " "+x.getItem().getWeight()+" thành tiền: "+x.calPrice());
+            for (PurchaseOrderItem x : order) {
+                System.out.println(x.getItem().getName() + " " + x.getItem().getWeight() + " kg | Thành tiền: " + x.calPrice() + " VNĐ");
             }
             System.out.println("------------------------------------------------------------------");
             System.out.println("TỔNG TIỀN: " + calTotal() + " VNĐ");

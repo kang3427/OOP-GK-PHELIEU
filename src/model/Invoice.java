@@ -117,7 +117,7 @@ public class Invoice {
     /**
      * Phương thức phụ trợ để chuyển đổi đối tượng Payment thành chuỗi tên hình thức thanh toán
      */
-    private String getPaymentMethodName() {
+    /*private String getPaymentMethodName() {
         if (paymentMethod == null) return "Chưa xác định";
 
         String className = paymentMethod.getClass().getSimpleName();
@@ -131,5 +131,5 @@ public class Invoice {
             default:
                 return "Khác";
         }
-    }
+    }*/
 }
