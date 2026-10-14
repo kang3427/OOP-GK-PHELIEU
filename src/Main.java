@@ -143,7 +143,7 @@ public class Main {
         PurchaseOrder order = new PurchaseOrder("PL001", "Nguyễn Văn Thoáng", cart);
         Payment paymentMethod = new CashPayment("nguyen van thoang", "8320487362",new Employee("id114", "nguyen van a","07782642552",List.of("xom 1","van tuong")),Reward);
 
-        Invoice invoice = new Invoice("INV-999", order, paymentMethod);
+        Invoice invoice = new Invoice("INV-999", order, paymentMethod,nv1,Reward);
         invoice.printInvoice();
     }
 }

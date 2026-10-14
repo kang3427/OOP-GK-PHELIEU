@@ -12,7 +12,6 @@ public class CustomerReward implements Rewardable {
     public CustomerReward(double rewardRate) {
         this.rewardRate = rewardRate;
     }
-    double getRewardRate(){return rewardRate;}
 
     @Override
     public double calculateReward(double weight, double basePrice) {

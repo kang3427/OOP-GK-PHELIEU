@@ -44,7 +44,7 @@ public class Employee {
         return kq;
     }
     public String getThongTin() {
-        return "Id: " + idNhanVien + " Ten nhan vien: " + tenNhanVien + " So dien thoai: " + sdt;
+        return idNhanVien + " | " + tenNhanVien +" | "+ sdt;
     }
 
     //getter
