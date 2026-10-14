@@ -1,5 +1,6 @@
 package payment;
 import model.Employee;
+import reward.CustomerReward;
 
 /**
  * Triển khai phương thức thanh toán qua Ví điện tử (MoMo, ZaloPay, Viettel Money...).
@@ -13,19 +14,22 @@ public class EWalletPayment implements Payment{
     private String payId;
     private Employee employee;
     private String tenTaiKhoan;
+    private CustomerReward Reward;
 
-    public EWalletPayment(String viDienTu, String soTaiKhoan, String tenTaiKhoan, String payId, Employee employee) {
+    public EWalletPayment(String viDienTu, String soTaiKhoan, String tenTaiKhoan, String payId, Employee employee, CustomerReward  Reward) {
         this.viDienTu = viDienTu;
         this.soTaiKhoan = soTaiKhoan;
         this.payId = payId;
         this.employee = employee;
         this.tenTaiKhoan = tenTaiKhoan;
+        this.Reward = Reward;
     }
 
     @Override
     public void pay(double So_Tien) {
+        double T_So_Tien=So_Tien+Reward.calculateReward(0,So_Tien);
         System.out.println("[Thanh toan vi dien tu] cho khach hang:"
-        + So_Tien +" "+ viDienTu +" "+ soTaiKhoan + " "+ tenTaiKhoan + " " + payId +" nv: "+employee.getThongTin());
+        + T_So_Tien +" "+ viDienTu +" "+ soTaiKhoan + " "+ tenTaiKhoan + " " + payId +" nv: "+employee.getThongTin());
     }
     @Override
     public String getPayment(){

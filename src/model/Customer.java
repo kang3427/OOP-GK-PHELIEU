@@ -1,4 +1,5 @@
 package model;
+import enums.*;
 
 /**
  * Lớp đại diện cho thông tin Khách hàng / Đối tác giao dịch với vựa phế liệu.

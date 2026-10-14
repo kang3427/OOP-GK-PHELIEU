@@ -1,5 +1,6 @@
 package payment;
 import model.Employee;
+import reward.CustomerReward;
 
 /**
  * Triển khai phương thức thanh toán bằng Tiền mặt (Cash Payment).
@@ -11,17 +12,20 @@ public class CashPayment implements Payment{
     private String payId;
     private Employee employee;
     private String tenKhachHang;
+    private CustomerReward Reward;
 
-    public CashPayment(String tenKhachHang, String payId, Employee employee) {
+    public CashPayment(String tenKhachHang, String payId, Employee employee, CustomerReward Reward) {
         this.payId = payId;
         this.employee = employee;
         this.tenKhachHang = tenKhachHang;
+        this.Reward = Reward;
     }
 
     @Override
     public void pay(double So_Tien) {
+        double T_So_Tien=So_Tien+Reward.calculateReward(0,So_Tien);
         System.out.println("[Thanh toan tien mat] cho khach hang:"
-                + So_Tien +" "+ tenKhachHang + " " + payId +" nv: "+employee.getThongTin());
+                + T_So_Tien +" "+ tenKhachHang + " " + payId +" nv: "+employee.getThongTin());
     }
     @Override
     public String getPayment() {
