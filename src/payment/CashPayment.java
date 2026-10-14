@@ -1,6 +1,4 @@
 package payment;
-import model.Employee;
-import reward.CustomerReward;
 
 /**
  * Triển khai phương thức thanh toán bằng Tiền mặt (Cash Payment).
@@ -10,25 +8,31 @@ import reward.CustomerReward;
 
 public class CashPayment implements Payment{
     private String payId;
-    private Employee employee;
     private String tenKhachHang;
-    private CustomerReward Reward;
 
-    public CashPayment(String tenKhachHang, String payId, Employee employee, CustomerReward Reward) {
+    public CashPayment(String payId, String tenKhachHang) {
+        if (tenKhachHang == null) {
+            throw  new IllegalArgumentException("Tên khách hàng không được để trống!");
+        }
+        if (payId == null) {
+            throw new IllegalArgumentException("Mã giao dịch không được để trống!");
+        }
+
         this.payId = payId;
-        this.employee = employee;
         this.tenKhachHang = tenKhachHang;
-        this.Reward = Reward;
     }
 
     @Override
     public void pay(double So_Tien) {
-        double T_So_Tien=So_Tien+Reward.calculateReward(0,So_Tien);
-        System.out.println("[Thanh toan tien mat] cho khach hang:"
-                + T_So_Tien +" "+ tenKhachHang + " " + payId +"\n"+ "NV -> " + employee.getThongTin());
+        if  (So_Tien <= 0) {
+            throw new IllegalArgumentException("Số tiền phải lớn hơn 0!");
+        }
+        System.out.println("[Thanh toan tien mat] cho khach hang: "
+                + So_Tien + " | " + payId +" | "+ tenKhachHang);
     }
+
     @Override
     public String getPayment() {
-        return " Ten khach hang: "+ tenKhachHang + "Ma giao dich: " + payId +"\n"+ employee.getThongT();
+        return "Hình thức: Tiền mặt -> " + "Mã giao dịch: " + payId + " Tên khách hàng: " + tenKhachHang;
     }
 }

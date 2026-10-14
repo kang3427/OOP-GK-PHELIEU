@@ -1,6 +1,4 @@
 package payment;
-import model.Employee;
-import reward.CustomerReward;
 
 /**
  * Triển khai phương thức thanh toán qua Ví điện tử (MoMo, ZaloPay, Viettel Money...).
@@ -12,27 +10,38 @@ public class EWalletPayment implements Payment{
     private String viDienTu;
     private String soTaiKhoan;
     private String payId;
-    private Employee employee;
     private String tenTaiKhoan;
-    private CustomerReward Reward;
 
-    public EWalletPayment(String viDienTu, String soTaiKhoan, String tenTaiKhoan, String payId, Employee employee, CustomerReward  Reward) {
+    public EWalletPayment(String payId, String viDienTu, String soTaiKhoan, String tenTaiKhoan) {
+        if (tenTaiKhoan == null) {
+            throw  new IllegalArgumentException("Tên tài khoản không được để trống!");
+        }
+        if (payId == null) {
+            throw new IllegalArgumentException("Mã giao dịch không được để trống!");
+        }
+        if (viDienTu == null) {
+            throw new IllegalArgumentException("Ví điện tử không được để trống!");
+        }
+        if (soTaiKhoan == null) {
+            throw new IllegalArgumentException("Số tài khoản không được để trống!");
+        }
+
         this.viDienTu = viDienTu;
         this.soTaiKhoan = soTaiKhoan;
         this.payId = payId;
-        this.employee = employee;
         this.tenTaiKhoan = tenTaiKhoan;
-        this.Reward = Reward;
     }
 
     @Override
     public void pay(double So_Tien) {
-        double T_So_Tien=So_Tien+Reward.calculateReward(0,So_Tien);
-        System.out.println("[Thanh toan vi dien tu] cho khach hang:"
-        + T_So_Tien +" "+ viDienTu +" "+ soTaiKhoan + " "+ tenTaiKhoan + " " + payId +"\n"+ "NV -> " + employee.getThongTin());
+        if  (So_Tien <= 0) {
+            throw new IllegalArgumentException("Số tiền phải lớn hơn 0!");
+        }
+        System.out.println("[Thanh toan vi dien tu] cho khach hang: "
+        + So_Tien + " " + payId +" | "+ viDienTu +" | "+ soTaiKhoan + " | "+ tenTaiKhoan );
     }
     @Override
     public String getPayment(){
-        return "Vi dien tu: "+viDienTu+" So tai khoan: "+ soTaiKhoan + " Ma giao dich: " + payId + " Ten tai khoan: "+ tenTaiKhoan +"\n"+ employee.getThongT();
+        return "Hình thức: Ví điện tử -> " + "Ma giao dich: " + payId + " Vi dien tu: "+viDienTu+" So tai khoan: "+ soTaiKhoan +  " Ten tai khoan: "+ tenTaiKhoan;
     }
 }
