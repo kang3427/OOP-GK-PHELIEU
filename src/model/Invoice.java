@@ -113,23 +113,4 @@ public class Invoice {
         }
         System.out.println("=============================");
     }
-
-    /**
-     * Phương thức phụ trợ để chuyển đổi đối tượng Payment thành chuỗi tên hình thức thanh toán
-     */
-    /*private String getPaymentMethodName() {
-        if (paymentMethod == null) return "Chưa xác định";
-
-        String className = paymentMethod.getClass().getSimpleName();
-        switch (className) {
-            case "CashPayment":
-                return "Tiền mặt";
-            case "BankPayment":
-                return "Chuyển khoản";
-            case "EWalletPayment":
-                return "Ví điện tử";
-            default:
-                return "Khác";
-        }
-    }*/
 }
