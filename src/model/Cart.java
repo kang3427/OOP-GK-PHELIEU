@@ -10,12 +10,12 @@ import java.util.List;
 public class Cart {
     private String cartId;
     private List<CartItem> items= new ArrayList<>(); //Tạo mảng lưu các phế liệu
-    public Cart(String cardId) {
+    public Cart(String cartId) {
         // 1. Kiểm tra Mã giỏ hàng (cartId/cartId) không được null hoặc rỗng
-        if (cardId == null || cardId.trim().isEmpty()) {
+        if (cartId == null || cartId.trim().isEmpty()) {
             throw new IllegalArgumentException("Mã giỏ hàng (cartId) không được để trống!");
         }
-        this.cartId = cardId.trim();
+        this.cartId = this.cartId.trim();
         // Danh sách items đã được khởi tạo sẵn (new ArrayList<>()) ở phần khai báo thuộc tính
     }
 
@@ -53,7 +53,7 @@ public class Cart {
             for (CartItem x: items){
                 System.out.println("Mã ID: " + x.getItem().getId() +
                         " | Tên phế liệu: " + x.getItem().getName() +
-                        " | Đơn giá: " + x.getItem().getPricePerKg() + " VNĐ/kg" +
+                        " | Đơn giá chốt: " + x.getPricePerKgNow() + " VNĐ/kg" +
                         " | Khối lượng: " + x.getItem().getWeight() + " kg" +
                         " | Thành tiền: " + x.calPrice() + " VNĐ");
             }
