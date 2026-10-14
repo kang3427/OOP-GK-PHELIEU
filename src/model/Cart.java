@@ -15,7 +15,7 @@ public class Cart {
         if (cartId == null || cartId.trim().isEmpty()) {
             throw new IllegalArgumentException("Mã giỏ hàng (cartId) không được để trống!");
         }
-        this.cartId = this.cartId.trim();
+        this.cartId = cartId.trim();
         // Danh sách items đã được khởi tạo sẵn (new ArrayList<>()) ở phần khai báo thuộc tính
     }
 
