@@ -10,6 +10,9 @@ public class CustomerReward implements Rewardable {
     private double rewardRate; // Tỷ lệ thưởng (ví dụ: 0.02 = 2%)
 
     public CustomerReward(double rewardRate) {
+        if (rewardRate < 0 || rewardRate > 1.0) {
+            throw new IllegalArgumentException("Tỷ lệ thưởng phải nằm trong khoảng từ 0.0 đến 1.0 (0% - 100%)!");
+        }
         this.rewardRate = rewardRate;
     }
 

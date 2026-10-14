@@ -12,7 +12,7 @@ import java.util.List;
 
 public class PurchaseOrder {
     private String orderId;
-    private String customer;
+    private Customer customer;
     private List<PurchaseOrderItem> order = new ArrayList<>();
     private OrderStatus status= OrderStatus.PENDING;
 
@@ -24,7 +24,7 @@ public class PurchaseOrder {
         order.removeIf(OrderItem -> OrderItem.getItem().getId().equals(id));
     }
 
-    public PurchaseOrder(String orderId, String customer, Cart cart) {
+    public PurchaseOrder(String orderId, Customer customer, Cart cart) {
         this.orderId = orderId;
         this.customer = customer;
         this.status = OrderStatus.PROCESSING;
@@ -43,7 +43,15 @@ public class PurchaseOrder {
         return tong;
     }
 
-    public String getCustomer() {
+    public double getTotalWeight() {
+        double totalWeight = 0;
+        for (PurchaseOrderItem x : order) {
+            totalWeight += x.getWeightKg();
+        }
+        return totalWeight;
+    }
+
+    public Customer getCustomer() {
         return this.customer;
     }
     public List<PurchaseOrderItem> getItems() {

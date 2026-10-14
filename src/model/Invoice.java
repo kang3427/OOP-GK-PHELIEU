@@ -13,9 +13,9 @@ public class Invoice {
     private PurchaseOrder purchaseOrder;
     private Payment paymentMethod;
     private Employee  employee;
-    private CustomerReward Reward;
+    private CustomerReward reward;
 
-    public Invoice(String invoiceId, PurchaseOrder purchaseOrder, Payment paymentMethod, Employee employee, CustomerReward Reward) {
+    public Invoice(String invoiceId, PurchaseOrder purchaseOrder, Payment paymentMethod, Employee employee, CustomerReward reward) {
         // 1. Kiểm tra Mã hóa đơn (invoiceId) không được null hoặc rỗng
         if (invoiceId == null || invoiceId.trim().isEmpty()) {
             throw new IllegalArgumentException("Mã hóa đơn (invoiceId) không được để trống!");
@@ -36,16 +36,16 @@ public class Invoice {
             throw new IllegalArgumentException("Thông tin nhân viên (employee) không được để trống!");
         }
 
-        // 5. Kiểm tra Thưởng (Reward) không được null
-        if (Reward == null) {
-            throw new IllegalArgumentException("Thưởng (Reward) không được để trống");
+        // 5. Kiểm tra Thưởng (reward) không được null
+        if (reward == null) {
+            throw new IllegalArgumentException("Thưởng (reward) không được để trống");
         }
 
         this.invoiceId = invoiceId.trim();
         this.purchaseOrder = purchaseOrder;
         this.paymentMethod = paymentMethod;
         this.employee = employee;
-        this.Reward = Reward;
+        this.reward = reward;
     }
 
     // Getters & Setters
@@ -86,10 +86,11 @@ public class Invoice {
         System.out.println("         PHIẾU THU MUA PHẾ LIỆU");
         System.out.println("=============================");
         System.out.println("Mã phiếu: " + invoiceId);
-
+        // Hiển thị thông tin nhân viên
+        System.out.println("Nhân Viên: "+employee.getThongTin());
         // Lấy thông tin khách hàng từ PurchaseOrder
         if (purchaseOrder != null && purchaseOrder.getCustomer() != null) {
-            System.out.println("Khách: " + purchaseOrder.getCustomer());
+            System.out.println("Khách: " + purchaseOrder.getCustomer().getName());
         } else {
             System.out.println("Khách: Khách vãng lai");
         }
@@ -101,15 +102,15 @@ public class Invoice {
                 System.out.printf("%-12s x %.0f kg\n", item.getItem().getName(), item.getWeightKg());
             }
             // Hiển thị tổng chi trả
-            double tien=purchaseOrder.calTotal();
-            System.out.println("Tổng chi trả: " + df.format(purchaseOrder.calTotal()+Reward.calculateReward(0,tien)) + " VND");
+            double baseTotal = purchaseOrder.calTotal();
+            double totalWeight = purchaseOrder.getTotalWeight();
+            double rewardAmount = reward.calculateReward(totalWeight, baseTotal);
+            double finalTotal = baseTotal + rewardAmount;
+            //System.out.println("Tiền hàng:    " + df.format(baseTotal) + " VNĐ");
+            //System.out.println("Tiền thưởng:  " + df.format(rewardAmount) + " VNĐ");
+            System.out.println("TỔNG CHI TRẢ: " + df.format(finalTotal) + " VNĐ");
+            paymentMethod.pay(finalTotal);
         }
-
-        // Hiển thị hình thức thanh toán
-        System.out.println("Hình thức: " + getPaymentMethodName());
-
-        // Hiển thị thông tin nhân viên
-        System.out.println("Nhân Viên: "+employee.getThongTin());
         System.out.println("=============================");
     }
 

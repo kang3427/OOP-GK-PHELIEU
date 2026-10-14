@@ -29,7 +29,7 @@ public class CartItem {
         }
 
         this.item = item;
-        this.item.setPricePerKg(pricePerKgNow);
+        this.pricePerKgNow = pricePerKgNow;
     }
 
     public ScrapItem getItem() {
@@ -37,6 +37,6 @@ public class CartItem {
     }
 
     public double calPrice() {
-        return item.getPricePerKg() * item.getWeight();
+        return pricePerKgNow * item.getWeight();
     }
 }

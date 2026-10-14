@@ -6,7 +6,7 @@ import enums.*;
  * Quản lý thông tin cá nhân, nhóm khách hàng (CustomerType) và số điểm thưởng tích lũy (rewardPoints).
  */
 
-public abstract class Customer {
+public class Customer {
     private final String customerId;
     private final String name;
     private final String phone;
@@ -45,5 +45,13 @@ public abstract class Customer {
         this.customerType = customerType;
     }
 
-    public abstract void displayInfo();
+    public String getCustomerId() { return customerId; }
+    public String getName() { return name; }
+    public String getPhone() { return phone; }
+    public String getAddress() { return address; }
+    public CustomerType getCustomerType() { return customerType; }
+
+    public void displayInfo() {
+        System.out.println("Mã KH: " + customerId + " | Tên: " + name + " | SĐT: " + phone + " | Loại: " + customerType);
+    }
 }

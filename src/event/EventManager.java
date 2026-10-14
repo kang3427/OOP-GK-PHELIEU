@@ -1,4 +1,6 @@
 package event;
+
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,7 @@ import java.util.List;
  */
 
 public class EventManager {
-    private List<EventListener> listeners = new ArrayList<>();
+    private final List<EventListener> listeners = new CopyOnWriteArrayList<>();
 
     // Hàm subscribe() dùng để đăng ký nhận thông báo
     public void subscribe(EventListener listener) {

@@ -139,8 +139,8 @@ public class Main {
         Cart cart = new Cart("CART001");
         cart.addItem(sat);
         cart.addItem(nhom);
-
-        PurchaseOrder order = new PurchaseOrder("PL001", "Nguyễn Văn Thoáng", cart);
+        Customer khachhang1=new Customer("id001","nguyen van thoang","0384726422","hcm", CustomerType.VIP);
+        PurchaseOrder order = new PurchaseOrder("PL001", khachhang1, cart);
         Payment paymentMethod = new CashPayment("8320487362","nguyen van thoang");
 
         Invoice invoice = new Invoice("INV-999", order, paymentMethod,nv1,Reward);
