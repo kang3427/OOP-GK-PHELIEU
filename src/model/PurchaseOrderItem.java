@@ -15,7 +15,7 @@ public class PurchaseOrderItem {
         }
 
         // 2. Kiểm tra đơn giá chốt tại thời điểm giao dịch phải lớn hơn 0
-        if (pricePerKgNow <= 0) {
+        if (pricePerKgNow < 0) {
             throw new IllegalArgumentException("Đơn giá chốt (pricePerKgNow) phải lớn hơn 0 VNĐ/kg!");
         }
 

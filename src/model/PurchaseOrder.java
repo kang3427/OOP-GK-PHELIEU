@@ -58,13 +58,19 @@ public class PurchaseOrder {
         }
         return totalWeight;
     }
-
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
     public Customer getCustomer() {
         return this.customer;
+    }
+    public String getOrderId() {
+        return this.orderId;
     }
     public List<PurchaseOrderItem> getItems() {
         return this.order;
     }
+    public OrderStatus getStatus() { return this.status; }
 
     public void showOrder(){
         System.out.println("====== Hóa đơn của bạn là ======");

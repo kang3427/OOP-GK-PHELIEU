@@ -20,7 +20,7 @@ public class CartItem {
         }
 
         // 2. Kiểm tra đơn giá chốt tại thời điểm mua phải lớn hơn 0
-        if (pricePerKgNow <= 0) {
+        if (pricePerKgNow < 0) {
             throw new IllegalArgumentException("Đơn giá mới (pricePerKgNow) phải lớn hơn 0 VNĐ/kg!");
         }
 

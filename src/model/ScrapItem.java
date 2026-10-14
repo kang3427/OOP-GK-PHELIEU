@@ -13,7 +13,7 @@ public abstract class ScrapItem {
     private double weight; //Cân nặng
 
     public ScrapItem(String id,String name, double pricePerKg, double weight){
-        if (id == null || name == null || pricePerKg <=0 || weight <0
+        if (id == null || name == null || pricePerKg <0 || weight <=0
                 || id.trim().isEmpty() || name.trim().isEmpty()){
             throw new IllegalArgumentException("Thông tin Phế Liệu KHÔNG phù hợp"); }
         this.id=id;

@@ -29,17 +29,20 @@ public class InventoryManager {
 
         double newTotal = this.khoiLuong + weight;
 
-        // Kiểm tra quy tắc cảnh báo vượt sức chứa
+        // Nếu vượt quá sức chứa tối đa
         if (newTotal > this.sucChuaToiDa) {
             String alert = String.format("CẢNH BÁO: Mặt hàng [%s] vượt sức chứa bãi! (Hiện có + Mới: %.2f kg / Tối đa: %.2f kg)",
                     idItem, newTotal, sucChuaToiDa);
+
             if (eventManager != null) {
                 eventManager.publish(new ShopEvent("OUT_OF_CAPACITY", alert));
-            } else {
-                System.out.println("[WARNING] " + alert);
             }
+
+            // CHẶN BẰNG NGUYÊN LỆ (Throw Exception để không cho cập nhật)
+            throw new IllegalStateException("Cập nhật kho thất bại: " + alert);
         }
 
+        // Chỉ gán khối lượng mới khi không bị vọt kho
         this.khoiLuong = newTotal;
     }
 
