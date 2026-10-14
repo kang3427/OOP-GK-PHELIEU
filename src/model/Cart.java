@@ -23,9 +23,13 @@ public class Cart {
     public Cart() {
         this.cartId = "CART-" + System.currentTimeMillis();
     }
-    // Thêm vào cart
+    // Thêm phế liệu theo giá niêm yết mặc định
     public void addItem(ScrapItem item) {
         items.add(new CartItem(item));
+    }
+    // Thêm phế liệu với giá thỏa thuận riêng
+    public void addItem(ScrapItem item, double pricePerKgNow) {
+        items.add(new CartItem(item, pricePerKgNow));
     }
     // Xóa 1 phẩn tử khỏi cart
     public void removeItem(String id) {
