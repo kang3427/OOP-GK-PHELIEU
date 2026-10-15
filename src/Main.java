@@ -182,9 +182,9 @@ public class Main {
         QueriesJava.q19_getTop3LowestPriceItems(items);
         QueriesJava.q20_extractScrapItemDetail(items, "P01");
 
-        // Thoáng: Bổ sung kiểm thử đúng 10 truy vấn khách hàng, giữ nguyên toàn bộ phần Main hiện có.
+        // Thoáng: Bổ sung kiểm thử 10 câu truy vấn khách hàng
         System.out.println("\n------------------------------------------------------------------");
-        System.out.println("              KIỂM THỬ 10 TRUY VẤN KHÁCH HÀNG                    ");
+        System.out.println("              KIỂM THỬ 10 CÂU TRUY VẤN KHÁCH HÀNG                    ");
         System.out.println("------------------------------------------------------------------");
 
         CustomerQueries.q1_findCustomerById(danhSachKhachHang, "CUST01");
@@ -200,7 +200,6 @@ public class Main {
 
     }
 
-    // Hàm quy trình xử lý đơn hàng (Sử dụng đúng getOrderId() và getTenNhanVien() theo code gốc)
     private static void xuLyDonHang(PurchaseOrder order, Customer customer, Employee employee, InventoryManager khoKimLoai, InventoryManager khoGiay, InventoryManager khoNhua, InventoryManager khoDienTu, EventManager eventManager, Payment payment) {
         System.out.println("------------------------------------------------------------------");
         System.out.println("--> XỬ LÝ " + order.getOrderId() + " (Khách: " + customer.getName() + " | NV Lập: " + employee.getTenNhanVien() + ")");
