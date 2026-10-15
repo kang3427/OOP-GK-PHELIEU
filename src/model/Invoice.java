@@ -106,8 +106,8 @@ public class Invoice {
             double totalWeight = purchaseOrder.getTotalWeight();
             double rewardAmount = reward.calculateReward(totalWeight, baseTotal);
             double finalTotal = baseTotal + rewardAmount;
-            //System.out.println("Tiền hàng:    " + df.format(baseTotal) + " VNĐ");
-            //System.out.println("Tiền thưởng:  " + df.format(rewardAmount) + " VNĐ");
+            System.out.println("Tiền hàng:    " + df.format(baseTotal) + " VNĐ");
+            System.out.println("Tiền thưởng:  " + df.format(rewardAmount) + " VNĐ");
             System.out.println("TỔNG CHI TRẢ: " + df.format(finalTotal) + " VNĐ");
             paymentMethod.pay(finalTotal);
         }

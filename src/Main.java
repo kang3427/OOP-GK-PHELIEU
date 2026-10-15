@@ -4,6 +4,7 @@ import manager.*;
 import model.*;
 import payment.*;
 import reward.*;
+import queriesJava.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -136,6 +137,33 @@ public class Main {
         System.out.println("   + KHO GIẤY    : " + khoGiay.checkStock()    + " / " + khoGiay.getSucChuaToiDa()    + " kg");
         System.out.println("   + KHO NHỰA    : " + khoNhua.checkStock()    + " / " + khoNhua.getSucChuaToiDa()    + " kg");
         System.out.println("   + KHO ĐIỆN TỬ : " + khoDienTu.checkStock()  + " / " + khoDienTu.getSucChuaToiDa()  + " kg");
+
+
+        // ==================== CHẠY 10 CÂU TRUY VẤN CHI TIẾT ====================
+        List<PurchaseOrder> allOrders = List.of(order1, order2, order3, order4);
+        List<InventoryManager> allWarehouses = List.of(khoKimLoai, khoGiay, khoNhua, khoDienTu);
+
+        // Tạo danh sách hóa đơn mẫu để test Query 7
+        List<Invoice> allInvoices = new ArrayList<>();
+        CustomerReward reward = new CustomerReward(danhSachKhachHang.get(1));
+        allInvoices.add(new Invoice("INV_ORD02", order2,
+                new BankPayment("PAY02", "Techcombank", "190312345678", danhSachKhachHang.get(1).getName()),
+                danhSachNhanVien.get(1), reward));
+
+        System.out.println("\n------------------------------------------------------------------");
+        System.out.println("              BÁO CÁO THỰC THI 10 CÂU TRUY VẤN STREAM             ");
+        System.out.println("------------------------------------------------------------------");
+
+        QueriesJava.q1_getAllOrdersDetailed(allOrders);
+        QueriesJava.q2_findOrderByIdDetailed(allOrders, "ORD01");
+        QueriesJava.q3_getPendingOrdersDetailed(allOrders);
+        QueriesJava.q4_getCompletedMetalItemsDetailed(allOrders);
+        QueriesJava.q5_showItemsOfOrder(allOrders, "ORD02");
+        QueriesJava.q6_getHighestValueOrderDetailed(allOrders);
+        QueriesJava.q7_getBankPaymentInvoicesDetailed(allInvoices);
+        QueriesJava.q8_getOver70PercentStockDetailed(allWarehouses);
+        QueriesJava.q9_getTodayCancelledOrdersDetailed(allOrders);
+        QueriesJava.q10_getOrdersOver2MillionDetailed(allOrders);
     }
 
     // Hàm quy trình xử lý đơn hàng (Sử dụng đúng getOrderId() và getTenNhanVien() theo code gốc)
