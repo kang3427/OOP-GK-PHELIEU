@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdbd9851-3eca-43cd-bc71-c309aa714f3b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/production/src/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/production/src/model/EWasteScrap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/production/src/model/Invoice.class" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/production/src/model/Invoice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/production/src/model/MetalScrap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/production/src/model/PaperScrap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/production/src/model/PlasticScrap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/production/src/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/production/src/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/production/src/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/production/src/model/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/production/src/queriesJava/QueriesJava.class" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/production/src/queriesJava/QueriesJava.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/EWasteScrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/EWasteScrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/MetalScrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/MetalScrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/PaperScrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/PaperScrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/PlasticScrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/PlasticScrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ScrapItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/ScrapItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/queriesJava/CustomerQueries.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/queriesJava/QueriesJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/queriesJava/QueriesJava.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
