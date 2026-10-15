@@ -164,6 +164,22 @@ public class Main {
         QueriesJava.q8_getOver70PercentStockDetailed(allWarehouses);
         QueriesJava.q9_getTodayCancelledOrdersDetailed(allOrders);
         QueriesJava.q10_getOrdersOver2MillionDetailed(allOrders);
+
+        // ==================== BÁO CÁO THỰC THI 10 CÂU TRUY VẤN MỚI (Q11 - Q20) ====================
+        System.out.println("\n------------------------------------------------------------------");
+        System.out.println("        BÁO CÁO THỰC THI BỘ 10 TRUY VẤN MỚI BỔ SUNG (Q11 - Q20)   ");
+        System.out.println("------------------------------------------------------------------");
+
+        QueriesJava.q11_getAllScrapItems(items);
+        QueriesJava.q12_getZeroPriceItems(items);
+        QueriesJava.q13_getHighPricePlasticItems(items);
+        QueriesJava.q14_getTotalValueMetalItems(items);
+        QueriesJava.q15_getCleanOriginEWasteItems(items);
+        QueriesJava.q16_findScrapItemById(items, "M01");
+        QueriesJava.q17_getPlasticItemsOver3Kg(items);
+        QueriesJava.q18_getFullStockInventories(allWarehouses);
+        QueriesJava.q19_getTop3LowestPriceItems(items);
+        QueriesJava.q20_extractScrapItemDetail(items, "P01");
     }
 
     // Hàm quy trình xử lý đơn hàng (Sử dụng đúng getOrderId() và getTenNhanVien() theo code gốc)

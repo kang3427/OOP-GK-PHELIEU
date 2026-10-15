@@ -17,6 +17,10 @@ public class PaperScrap extends ScrapItem{
     public double calPrice() {
         return getPricePerKg() * getWeight();
     }
+    @Override
+    public PaperType getType() {
+        return this.type;
+    }
 
     @Override
     public void displayInfo() {

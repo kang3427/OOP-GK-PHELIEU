@@ -18,6 +18,10 @@ public class MetalScrap extends ScrapItem {
     public double calPrice() {
         return getPricePerKg() * getWeight();
     }
+    @Override
+    public MetalType getType() {
+        return this.type;
+    }
 
     @Override
     public void displayInfo() {

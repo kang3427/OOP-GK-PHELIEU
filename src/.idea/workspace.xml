@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdbd9851-3eca-43cd-bc71-c309aa714f3b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/production/src/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/production/src/model/EWasteScrap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/production/src/model/Invoice.class" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/production/src/model/Invoice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/production/src/model/MetalScrap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/production/src/model/PaperScrap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/production/src/model/PlasticScrap.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager/InventoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/manager/InventoryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/CartItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/PurchaseOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/PurchaseOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/PurchaseOrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/PurchaseOrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/EWasteScrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/EWasteScrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/MetalScrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/MetalScrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/PaperScrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/PaperScrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/PlasticScrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/PlasticScrap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/ScrapItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/ScrapItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reward/CustomerReward.java" beforeDir="false" afterPath="$PROJECT_DIR$/reward/CustomerReward.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/queriesJava/QueriesJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/queriesJava/QueriesJava.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,29 +37,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "ln",
-    "ignore.preview.features.used": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/HocTap/OOP-GK-PHELIEU_Khang/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.1544021",
-    "project.structure.side.proportion": "0.2",
-    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ln&quot;,
+    &quot;ignore.preview.features.used&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/HocTap/OOP-GK-PHELIEU_Khang/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.1544021&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="src" />

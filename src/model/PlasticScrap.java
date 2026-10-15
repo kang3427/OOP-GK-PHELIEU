@@ -17,6 +17,10 @@ public class PlasticScrap extends ScrapItem{
     public double calPrice() {
         return getPricePerKg() * getWeight();
     }
+    @Override
+    public PlasticType getType() {
+        return this.type;
+    }
 
     @Override
     public void displayInfo() {

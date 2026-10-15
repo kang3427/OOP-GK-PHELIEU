@@ -1,5 +1,7 @@
 package model;
 
+import enums.PaperType;
+
 /**
  * Lớp trừu tượng cơ sở đại diện cho một mặt hàng phế liệu chung trong hệ thống.
  * Chứa các thông tin nền tảng như mã nhận diện (id), tên gọi (name),
@@ -26,6 +28,7 @@ public abstract class ScrapItem {
     public String getName(){ return name; }
     public double getPricePerKg(){ return pricePerKg; }
     public double getWeight(){ return weight; }
+    public abstract Enum<?> getType();
 
     @Override
     public String toString() {

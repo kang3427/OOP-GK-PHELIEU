@@ -16,6 +16,10 @@ public class EWasteScrap extends ScrapItem {
     public double calPrice() {
         return getPricePerKg() * getWeight();
     }
+    @Override
+    public EWasteType getType() {
+        return this.type;
+    }
 
     @Override
     public void displayInfo() {
