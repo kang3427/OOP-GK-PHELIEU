@@ -188,7 +188,7 @@ public class Main {
         QueriesJava.q8_getOver70PercentStockDetailed(allWarehouses);
 
         System.out.println("\n-------------------- TRUY VẤN 9 --------------------");
-        QueriesJava.q9_getCancelledOrdersDetailed(allOrders);
+        QueriesJava.q9_getTodayCancelledOrdersDetailed(allOrders);
 
         System.out.println("\n-------------------- TRUY VẤN 10 --------------------");
         QueriesJava.q10_getOrdersOver2MillionDetailed(allOrders);
