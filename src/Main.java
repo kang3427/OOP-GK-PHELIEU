@@ -139,6 +139,7 @@ public class Main {
         System.out.println("   + KHO ĐIỆN TỬ : " + khoDienTu.checkStock()  + " / " + khoDienTu.getSucChuaToiDa()  + " kg");
 
 
+        // Thoáng: Phần chạy kiểm thử 10 truy vấn chính theo dữ liệu mẫu ở Main.
         // ==================== CHẠY 10 CÂU TRUY VẤN CHI TIẾT ====================
         List<PurchaseOrder> allOrders = List.of(order1, order2, order3, order4);
         List<InventoryManager> allWarehouses = List.of(khoKimLoai, khoGiay, khoNhua, khoDienTu);
@@ -162,7 +163,7 @@ public class Main {
         QueriesJava.q6_getHighestValueOrderDetailed(allOrders);
         QueriesJava.q7_getBankPaymentInvoicesDetailed(allInvoices);
         QueriesJava.q8_getOver70PercentStockDetailed(allWarehouses);
-        QueriesJava.q9_getTodayCancelledOrdersDetailed(allOrders);
+        QueriesJava.q9_getCancelledOrdersDetailed(allOrders);
         QueriesJava.q10_getOrdersOver2MillionDetailed(allOrders);
 
         // ==================== BÁO CÁO THỰC THI 10 CÂU TRUY VẤN MỚI (Q11 - Q20) ====================
@@ -180,6 +181,23 @@ public class Main {
         QueriesJava.q18_getFullStockInventories(allWarehouses);
         QueriesJava.q19_getTop3LowestPriceItems(items);
         QueriesJava.q20_extractScrapItemDetail(items, "P01");
+
+        // Thoáng: Bổ sung kiểm thử đúng 10 truy vấn khách hàng, giữ nguyên toàn bộ phần Main hiện có.
+        System.out.println("\n------------------------------------------------------------------");
+        System.out.println("              KIỂM THỬ 10 TRUY VẤN KHÁCH HÀNG                    ");
+        System.out.println("------------------------------------------------------------------");
+
+        CustomerQueries.q1_findCustomerById(danhSachKhachHang, "CUST01");
+        CustomerQueries.q2_findCustomersByPhone(danhSachKhachHang, "0944333444");
+        CustomerQueries.q3_findCustomersByName(danhSachKhachHang, "An Phát");
+        CustomerQueries.q4_getAllCustomers(danhSachKhachHang);
+        CustomerQueries.q5_findCustomersByType(danhSachKhachHang, CustomerType.REGULAR);
+        CustomerQueries.q6_findCustomersSellingPlasticOver3Kg(danhSachKhachHang, allOrders);
+        CustomerQueries.q7_findCustomersWithMissingContact(danhSachKhachHang);
+        CustomerQueries.q8_findCustomersByPhonePrefix(danhSachKhachHang, "093");
+        CustomerQueries.q9_getVipCustomers(danhSachKhachHang);
+        CustomerQueries.q10_totalWeightByScrapType(items);
+
     }
 
     // Hàm quy trình xử lý đơn hàng (Sử dụng đúng getOrderId() và getTenNhanVien() theo code gốc)
