@@ -88,6 +88,8 @@ public class Main {
         danhSachKhachHang.add(new Customer("CUST01", "Phạm Văn Minh", "0933111222", "12 Nguyễn Trãi, Q5", CustomerType.REGULAR));
         danhSachKhachHang.add(new Customer("CUST02", "Công ty Xây dựng An Phát", "0944333444", "45 Xô Viết Nghệ Tĩnh", CustomerType.AGENCY));
         danhSachKhachHang.add(new Customer("CUST03", "Bà Hoàng Thị Lan", "0955666777", "88 Võ Văn Tần, Q3", CustomerType.REGULAR));
+        danhSachKhachHang.add(new Customer("CUST04", "Nguyễn Gia Bảo", "0977888999", "22 Điện Biên Phủ, Q Bình Thạnh", CustomerType.VIP));
+        danhSachKhachHang.add(new Customer("CUST05", "Lê Minh Khang", "", "15 Lý Thường Kiệt, Q Tân Bình", CustomerType.REGULAR));
 
         System.out.println("3. Đã tạo List " + danhSachNhanVien.size() + " nhân viên và List " + danhSachKhachHang.size() + " khách hàng.\n");
 
@@ -141,7 +143,13 @@ public class Main {
 
         // Thoáng: Phần chạy kiểm thử 10 truy vấn chính theo dữ liệu mẫu ở Main.
         // ==================== CHẠY 10 CÂU TRUY VẤN CHI TIẾT ====================
-        List<PurchaseOrder> allOrders = List.of(order1, order2, order3, order4);
+        // Đơn kiểm thử riêng cho truy vấn 26; không chạy qua quy trình nhập kho thực tế.
+        Cart cartTestGiaTriCao = new Cart("CART_TEST_26");
+        cartTestGiaTriCao.addItem(items.get(3), 300000.0);
+        PurchaseOrder orderTestGiaTriCao = new PurchaseOrder("ORD_TEST_26", danhSachKhachHang.get(3), cartTestGiaTriCao);
+        orderTestGiaTriCao.setStatus(OrderStatus.COMPLETED);
+
+        List<PurchaseOrder> allOrders = List.of(order1, order2, order3, order4, orderTestGiaTriCao);
         List<InventoryManager> allWarehouses = List.of(khoKimLoai, khoGiay, khoNhua, khoDienTu);
 
         // Tạo danh sách hóa đơn mẫu để test Query 7
@@ -155,15 +163,34 @@ public class Main {
         System.out.println("              BÁO CÁO THỰC THI 10 CÂU TRUY VẤN STREAM             ");
         System.out.println("------------------------------------------------------------------");
 
+        System.out.println("\n-------------------- TRUY VẤN 1 --------------------");
         QueriesJava.q1_getAllOrdersDetailed(allOrders);
+
+        System.out.println("\n-------------------- TRUY VẤN 2 --------------------");
         QueriesJava.q2_findOrderByIdDetailed(allOrders, "ORD01");
+
+        System.out.println("\n-------------------- TRUY VẤN 3 --------------------");
         QueriesJava.q3_getPendingOrdersDetailed(allOrders);
+
+        System.out.println("\n-------------------- TRUY VẤN 4 --------------------");
         QueriesJava.q4_getCompletedMetalItemsDetailed(allOrders);
+
+        System.out.println("\n-------------------- TRUY VẤN 5 --------------------");
         QueriesJava.q5_showItemsOfOrder(allOrders, "ORD02");
+
+        System.out.println("\n-------------------- TRUY VẤN 6 --------------------");
         QueriesJava.q6_getHighestValueOrderDetailed(allOrders);
+
+        System.out.println("\n-------------------- TRUY VẤN 7 --------------------");
         QueriesJava.q7_getBankPaymentInvoicesDetailed(allInvoices);
+
+        System.out.println("\n-------------------- TRUY VẤN 8 --------------------");
         QueriesJava.q8_getOver70PercentStockDetailed(allWarehouses);
+
+        System.out.println("\n-------------------- TRUY VẤN 9 --------------------");
         QueriesJava.q9_getCancelledOrdersDetailed(allOrders);
+
+        System.out.println("\n-------------------- TRUY VẤN 10 --------------------");
         QueriesJava.q10_getOrdersOver2MillionDetailed(allOrders);
 
         // ==================== BÁO CÁO THỰC THI 10 CÂU TRUY VẤN MỚI (Q11 - Q20) ====================
@@ -171,35 +198,85 @@ public class Main {
         System.out.println("        BÁO CÁO THỰC THI BỘ 10 TRUY VẤN MỚI BỔ SUNG (Q11 - Q20)   ");
         System.out.println("------------------------------------------------------------------");
 
+        System.out.println("\n-------------------- TRUY VẤN 11 --------------------");
         QueriesJava.q11_getAllScrapItems(items);
+
+        System.out.println("\n-------------------- TRUY VẤN 12 --------------------");
         QueriesJava.q12_getZeroPriceItems(items);
+
+        System.out.println("\n-------------------- TRUY VẤN 13 --------------------");
         QueriesJava.q13_getHighPricePlasticItems(items);
+
+        System.out.println("\n-------------------- TRUY VẤN 14 --------------------");
         QueriesJava.q14_getTotalValueMetalItems(items);
+
+        System.out.println("\n-------------------- TRUY VẤN 15 --------------------");
         QueriesJava.q15_getCleanOriginEWasteItems(items);
+
+        System.out.println("\n-------------------- TRUY VẤN 16 --------------------");
         QueriesJava.q16_findScrapItemById(items, "M01");
+
+        System.out.println("\n-------------------- TRUY VẤN 17 --------------------");
         QueriesJava.q17_getPlasticItemsOver3Kg(items);
+
+        System.out.println("\n-------------------- TRUY VẤN 18 --------------------");
         QueriesJava.q18_getFullStockInventories(allWarehouses);
+
+        System.out.println("\n-------------------- TRUY VẤN 19 --------------------");
         QueriesJava.q19_getTop3LowestPriceItems(items);
+
+        System.out.println("\n-------------------- TRUY VẤN 20 --------------------");
         QueriesJava.q20_extractScrapItemDetail(items, "P01");
 
-        // Thoáng: Bổ sung kiểm thử 10 câu truy vấn khách hàng
+        // Thoáng: Bổ sung kiểm thử đúng 10 truy vấn khách hàng, giữ nguyên toàn bộ phần Main hiện có.
         System.out.println("\n------------------------------------------------------------------");
-        System.out.println("              KIỂM THỬ 10 CÂU TRUY VẤN KHÁCH HÀNG                    ");
+        System.out.println("              KIỂM THỬ TRUY VẤN 21 - 30                    ");
         System.out.println("------------------------------------------------------------------");
 
+        System.out.println("\n[TRUY VẤN 21] Tìm khách hàng theo mã");
         CustomerQueries.q1_findCustomerById(danhSachKhachHang, "CUST01");
+
+        System.out.println("\n------------------------------------------------------------");
+        System.out.println("[TRUY VẤN 22] Tìm khách hàng theo số điện thoại");
         CustomerQueries.q2_findCustomersByPhone(danhSachKhachHang, "0944333444");
+
+        System.out.println("\n------------------------------------------------------------");
+        System.out.println("[TRUY VẤN 23] Tìm khách hàng theo tên");
         CustomerQueries.q3_findCustomersByName(danhSachKhachHang, "An Phát");
+
+        System.out.println("\n------------------------------------------------------------");
+        System.out.println("[TRUY VẤN 24] Hiển thị toàn bộ khách hàng");
         CustomerQueries.q4_getAllCustomers(danhSachKhachHang);
+
+        System.out.println("\n------------------------------------------------------------");
+        System.out.println("[TRUY VẤN 25] Lọc khách hàng theo loại");
         CustomerQueries.q5_findCustomersByType(danhSachKhachHang, CustomerType.REGULAR);
-        CustomerQueries.q6_findCustomersSellingPlasticOver3Kg(danhSachKhachHang, allOrders);
+
+        System.out.println("\n------------------------------------------------------------");
+        System.out.println("[TRUY VẤN 26] Tìm khách hàng có tổng giá trị thu mua trên 2.000.000 VNĐ");
+        CustomerQueries.q6_findCustomersWithPurchasesOver2Million(danhSachKhachHang, allOrders);
+
+        System.out.println("\n------------------------------------------------------------");
+        System.out.println("[TRUY VẤN 27] Tìm khách hàng thiếu địa chỉ hoặc số điện thoại");
         CustomerQueries.q7_findCustomersWithMissingContact(danhSachKhachHang);
+
+        System.out.println("\n------------------------------------------------------------");
+        System.out.println("[TRUY VẤN 28] Tìm khách hàng theo đầu số điện thoại");
         CustomerQueries.q8_findCustomersByPhonePrefix(danhSachKhachHang, "093");
+
+        System.out.println("\n------------------------------------------------------------");
+        System.out.println("[TRUY VẤN 29] Hiển thị khách hàng VIP");
         CustomerQueries.q9_getVipCustomers(danhSachKhachHang);
+
+        System.out.println("\n------------------------------------------------------------");
+        System.out.println("[TRUY VẤN 30] Tính tổng khối lượng theo từng loại phế liệu");
         CustomerQueries.q10_totalWeightByScrapType(items);
+
+        System.out.println("\n================ KẾT THÚC TRUY VẤN 21 - 30 ================\n");
 
     }
 
+    // Hàm quy trình xử lý đơn hàng (Sử dụng đúng getOrderId() và getTenNhanVien() theo code gốc)
     private static void xuLyDonHang(PurchaseOrder order, Customer customer, Employee employee, InventoryManager khoKimLoai, InventoryManager khoGiay, InventoryManager khoNhua, InventoryManager khoDienTu, EventManager eventManager, Payment payment) {
         System.out.println("------------------------------------------------------------------");
         System.out.println("--> XỬ LÝ " + order.getOrderId() + " (Khách: " + customer.getName() + " | NV Lập: " + employee.getTenNhanVien() + ")");

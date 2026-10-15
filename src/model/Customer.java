@@ -25,14 +25,7 @@ public class Customer {
         }
 
         // 3. Kiểm tra Số điện thoại (phone)
-        if (phone == null || phone.trim().isEmpty()) {
-            throw new IllegalArgumentException("Số điện thoại không được để trống!");
-        }
-
         // 4. Kiểm tra Địa chỉ (address)
-        if (address == null || address.trim().isEmpty()) {
-            throw new IllegalArgumentException("Địa chỉ không được để trống!");
-        }
         // 5.Kiểm tra loại khách
         if (customerType == null) {
             throw new IllegalArgumentException("Loại khách hàng không được để trống!");
@@ -40,8 +33,8 @@ public class Customer {
 
         this.customerId = customerId.trim();
         this.name = name.trim();
-        this.phone = phone.trim();
-        this.address = address.trim();
+        this.phone = phone == null ? "" : phone.trim();
+        this.address = address == null ? "" : address.trim();
         this.customerType = customerType;
     }
 

@@ -3,9 +3,7 @@ package queriesJava;
 import enums.CustomerType;
 import enums.OrderStatus;
 import model.Customer;
-import model.PlasticScrap;
 import model.PurchaseOrder;
-import model.PurchaseOrderItem;
 import model.ScrapItem;
 
 import java.util.Collections;
@@ -62,17 +60,20 @@ public class CustomerQueries {
                 .forEach(Customer::displayInfo);
     }
 
-    // 6. Tìm khách hàng có bán ít nhất một mặt hàng nhựa nặng trên 3 kg trong các đơn thu mua.
-    public static void q6_findCustomersSellingPlasticOver3Kg(List<Customer> customers, List<PurchaseOrder> orders) {
-        List<String> customerIds = orders == null ? Collections.emptyList() : orders.stream()
+    // 6. Tìm khách hàng có tổng giá trị các giao dịch thu mua đã hoàn tất lớn hơn 2.000.000 VNĐ.
+    public static void q6_findCustomersWithPurchasesOver2Million(List<Customer> customers, List<PurchaseOrder> orders) {
+        Map<String, Double> totalByCustomer = (orders == null ? Collections.<PurchaseOrder>emptyList() : orders).stream()
                 .filter(Objects::nonNull)
                 .filter(o -> o.getStatus() == OrderStatus.COMPLETED)
                 .filter(o -> o.getCustomer() != null)
-                .filter(o -> o.getItems() != null && o.getItems().stream()
-                        .filter(Objects::nonNull)
-                        .anyMatch(i -> i.getItem() instanceof PlasticScrap && i.getWeightKg() > 3.0))
-                .map(o -> o.getCustomer().getCustomerId())
-                .distinct()
+                .collect(Collectors.groupingBy(
+                        o -> o.getCustomer().getCustomerId(),
+                        Collectors.summingDouble(PurchaseOrder::calTotal)
+                ));
+
+        List<String> customerIds = totalByCustomer.entrySet().stream()
+                .filter(entry -> entry.getValue() > 2_000_000)
+                .map(Map.Entry::getKey)
                 .toList();
 
         safeCustomers(customers).stream()
