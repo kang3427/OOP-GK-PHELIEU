@@ -9,19 +9,19 @@ import java.util.List;
  * Lưu trữ thông tin toàn bộ giao dịch: khách hàng bán, danh sách chi tiết hàng (PurchaseOrderItem),
  * tổng tiền phải thanh toán, trạng thái phiếu (OrderStatus) và thời gian lập phiếu.
  */
-
 public class PurchaseOrder {
     private String orderId;
     private Customer customer;
     private List<PurchaseOrderItem> order = new ArrayList<>();
-    private OrderStatus status= OrderStatus.PENDING;
+    private OrderStatus status = OrderStatus.PENDING;
+    private Invoice invoice;
 
     public void addItem(ScrapItem item) {
         order.add(new PurchaseOrderItem(item));
     }
 
     public void removeItem(String id) {
-        order.removeIf(OrderItem -> OrderItem.getItem().getId().equals(id));
+        order.removeIf(orderItem -> orderItem.getItem().getId().equals(id));
     }
 
     public PurchaseOrder(String orderId, Customer customer, Cart cart) {
@@ -31,21 +31,27 @@ public class PurchaseOrder {
         if (customer == null) {
             throw new IllegalArgumentException("Khách hàng không được để trống!");
         }
+
         this.orderId = orderId;
         this.customer = customer;
         this.status = OrderStatus.PROCESSING;
 
         if (cart != null && cart.getCart() != null) {
-            for (CartItem x : cart.getCart()) {
-                this.order.add(new PurchaseOrderItem(x.getItem(), x.getPricePerKgNow(), x.getItem().getWeight()));
+            for (int i = 0; i < cart.getCart().size(); i++) {
+                CartItem x = cart.getCart().get(i);
+                this.order.add(new PurchaseOrderItem(
+                        orderId + "_ITEM_" + (i + 1),
+                        x.getItem(),
+                        x.getPricePerKgNow(),
+                        x.getItem().getWeight()));
             }
         }
     }
 
-    public double calTotal(){
-        double tong=0;
-        for (PurchaseOrderItem x: order){
-            tong+=x.calPrice();
+    public double calTotal() {
+        double tong = 0;
+        for (PurchaseOrderItem x : order) {
+            tong += x.calPrice();
         }
         return tong;
     }
@@ -57,26 +63,36 @@ public class PurchaseOrder {
         }
         return totalWeight;
     }
-    public void setStatus(OrderStatus status) {
-        this.status = status;
-    }
-    public Customer getCustomer() {
-        return this.customer;
-    }
-    public String getOrderId() {
-        return this.orderId;
-    }
-    public List<PurchaseOrderItem> getItems() {
-        return this.order;
-    }
+
+    public void setStatus(OrderStatus status) { this.status = status; }
+    public Customer getCustomer() { return this.customer; }
+    public String getOrderId() { return this.orderId; }
+    public List<PurchaseOrderItem> getItems() { return this.order; }
     public OrderStatus getStatus() { return this.status; }
 
-    public void showOrder(){
-        System.out.println("====== Hóa đơn của bạn là ======");
-        if (order.isEmpty()){
-            System.out.println("Hóa đơn không có gì");
+    public Invoice getInvoice() { return this.invoice; }
+
+    public void attachInvoice(Invoice invoice) {
+        if (invoice == null) {
+            throw new IllegalArgumentException("Hóa đơn không được để trống!");
         }
-        else{
+        if (this.invoice != null && this.invoice != invoice) {
+            throw new IllegalStateException("Đơn hàng " + orderId + " đã có hóa đơn!");
+        }
+        this.invoice = invoice;
+    }
+
+    public void detachInvoice(Invoice invoice) {
+        if (this.invoice == invoice) {
+            this.invoice = null;
+        }
+    }
+
+    public void showOrder() {
+        System.out.println("====== Hóa đơn của bạn là ======");
+        if (order.isEmpty()) {
+            System.out.println("Hóa đơn không có gì");
+        } else {
             System.out.println("Mã ID: " + orderId);
             System.out.println("Tên khách hàng : " + (customer != null ? customer.getName() : "Khách vãng lai"));
             System.out.println("Trạng thái : " + status);

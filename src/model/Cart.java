@@ -23,11 +23,21 @@ public class Cart {
     public Cart() {
         this.cartId = "CART-" + System.currentTimeMillis();
     }
-    // Thêm phế liệu theo giá niêm yết mặc định
+    // Thêm phế liệu theo giá niêm yết mặc định, tự nhập mã chi tiết giỏ hàng
+    public void addItem(String cartItemId, ScrapItem item) {
+        items.add(new CartItem(cartItemId, item));
+    }
+
+    // Thêm phế liệu với giá thỏa thuận riêng, tự nhập mã chi tiết giỏ hàng
+    public void addItem(String cartItemId, ScrapItem item, double pricePerKgNow) {
+        items.add(new CartItem(cartItemId, item, pricePerKgNow));
+    }
+
+    // Giữ các cách gọi cũ để không ảnh hưởng phần code khác.
     public void addItem(ScrapItem item) {
         items.add(new CartItem(item));
     }
-    // Thêm phế liệu với giá thỏa thuận riêng
+
     public void addItem(ScrapItem item, double pricePerKgNow) {
         items.add(new CartItem(item, pricePerKgNow));
     }

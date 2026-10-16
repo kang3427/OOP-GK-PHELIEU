@@ -46,6 +46,7 @@ public class Invoice {
         this.paymentMethod = paymentMethod;
         this.employee = employee;
         this.reward = reward;
+        this.purchaseOrder.attachInvoice(this);
     }
 
     // Getters & Setters
@@ -62,7 +63,16 @@ public class Invoice {
     }
 
     public void setPurchaseOrder(PurchaseOrder purchaseOrder) {
-        this.purchaseOrder = purchaseOrder;
+        if (purchaseOrder == null) {
+            throw new IllegalArgumentException("Đơn thu mua (purchaseOrder) không được để trống!");
+        }
+        if (this.purchaseOrder != purchaseOrder) {
+            purchaseOrder.attachInvoice(this);
+            if (this.purchaseOrder != null) {
+                this.purchaseOrder.detachInvoice(this);
+            }
+            this.purchaseOrder = purchaseOrder;
+        }
     }
 
     public Payment getPaymentMethod() {

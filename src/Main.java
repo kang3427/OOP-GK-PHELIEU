@@ -152,9 +152,10 @@ public class Main {
 
         List<Invoice> allInvoices = new ArrayList<>();
         CustomerReward reward = new CustomerReward(danhSachKhachHang.get(1));
-        allInvoices.add(new Invoice("INV_ORD02", order2,
-                new BankPayment("PAY02", "Techcombank", "190312345678", danhSachKhachHang.get(1).getName()),
-                danhSachNhanVien.get(1), reward));
+        // Dùng hóa đơn đã tạo khi xử lý ORD02, không tạo hóa đơn thứ hai cho cùng đơn.
+        if (order2.getInvoice() != null) {
+            allInvoices.add(order2.getInvoice());
+        }
 
         // =========================================================================
         // THỰC THI TOÀN BỘ 30 TRUY VẤN STREAM API (TỪ QUERIESJAVA)
