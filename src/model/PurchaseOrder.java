@@ -37,8 +37,7 @@ public class PurchaseOrder {
 
         if (cart != null && cart.getCart() != null) {
             for (CartItem x : cart.getCart()) {
-                // SỬA DÒNG NÀY: Truyền cả item và pricePerKgNow đã chốt từ giỏ hàng
-                this.order.add(new PurchaseOrderItem(x.getItem(), x.getPricePerKgNow()));
+                this.order.add(new PurchaseOrderItem(x.getItem(), x.getPricePerKgNow(), x.getItem().getWeight()));
             }
         }
     }

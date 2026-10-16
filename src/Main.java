@@ -141,7 +141,13 @@ public class Main {
         PurchaseOrder orderTestGiaTriCao = new PurchaseOrder("ORD_TEST_26", danhSachKhachHang.get(3), cartTestGiaTriCao);
         orderTestGiaTriCao.setStatus(OrderStatus.COMPLETED);
 
-        List<PurchaseOrder> allOrders = List.of(order1, order2, order3, order4, orderTestGiaTriCao);
+        // Đơn hàng chờ xử lý (Q3)
+        Cart cartPending = new Cart("CART_PENDING");
+        cartPending.addItem(items.get(0));
+        PurchaseOrder orderPending = new PurchaseOrder("ORD05_PENDING", danhSachKhachHang.get(3), cartPending);
+        orderPending.setStatus(OrderStatus.PENDING);
+
+        List<PurchaseOrder> allOrders = List.of(order1, order2, order3, order4, orderTestGiaTriCao, orderPending);
         List<InventoryManager> allWarehouses = List.of(khoKimLoai, khoGiay, khoNhua, khoDienTu);
 
         List<Invoice> allInvoices = new ArrayList<>();

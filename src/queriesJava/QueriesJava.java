@@ -55,12 +55,18 @@ public class QueriesJava {
     public static List<PurchaseOrder> q3_getPendingOrdersDetailed(List<PurchaseOrder> orders) {
         System.out.println("\n=== 3. DANH SÁCH PHIẾU CHỜ XỬ LÝ (PENDING) ===");
         List<PurchaseOrder> pendingList = safeList(orders).stream()
+                .filter(Objects::nonNull)
                 .filter(o -> o.getStatus() == OrderStatus.PENDING)
                 .toList();
-
-        pendingList.forEach(o -> System.out.println("Mã đơn: " + o.getOrderId() +
-                " | Khách hàng: " + o.getCustomer().getName() +
-                " | Ngày lập: " + LocalDate.now()));
+        if (pendingList.isEmpty()) {
+            System.out.println("Không có đơn hàng nào đang ở trạng thái chờ xử lý (PENDING).");
+        } else {
+            pendingList.forEach(o -> System.out.println("Mã đơn: " + o.getOrderId() +
+                    " | Khách hàng: " + (o.getCustomer() != null ? o.getCustomer().getName() : "Vãng lai") +
+                    " | Số lượng mục: " + (o.getItems() != null ? o.getItems().size() : 0) +
+                    " | Tổng tiền: " + df.format(o.calTotal()) +
+                    " | Ngày lập: " + LocalDate.now()));
+        }
         return pendingList;
     }
 

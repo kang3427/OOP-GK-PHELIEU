@@ -8,6 +8,24 @@ package model;
 public class PurchaseOrderItem {
     private ScrapItem item;
     private double pricePerKgNow;
+    private double weightKgNow;
+
+    public PurchaseOrderItem(ScrapItem item, double pricePerKgNow, double weightKgNow) {
+        if (item == null) {
+            throw new IllegalArgumentException("Mặt hàng phế liệu (item) không được để trống!");
+        }
+        if (pricePerKgNow < 0) {
+            throw new IllegalArgumentException("Đơn giá chốt (pricePerKgNow) phải lớn hơn 0 VNĐ/kg!");
+        }
+        if (weightKgNow <= 0) {
+            throw new IllegalArgumentException("Khối lượng chốt (weightKgNow) phải lớn hơn 0 kg!");
+        }
+
+        this.item = item;
+        this.pricePerKgNow = pricePerKgNow;
+        this.weightKgNow = weightKgNow;
+    }
+
     public PurchaseOrderItem(ScrapItem item, double pricePerKgNow) {
         // 1. Kiểm tra đối tượng ScrapItem không được null
         if (item == null) {
@@ -34,11 +52,7 @@ public class PurchaseOrderItem {
 
     public ScrapItem getItem(){ return item; }
     public double getPricePerKgNow() { return pricePerKgNow; }
-    public double calPrice() {
-        return pricePerKgNow * item.getWeight();
-    }
-    public double getWeightKg() {
-        return item.getWeight();
-    }
+    public double calPrice() {return pricePerKgNow * weightKgNow;}
+    public double getWeightKg() {return weightKgNow;}
 
 }

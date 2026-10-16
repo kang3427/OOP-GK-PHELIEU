@@ -14,6 +14,8 @@ public class CustomerReward implements Rewardable {
             this.rewardRate = 0.05; // Khách Đại lý thưởng 5%
         } else if (customer.getCustomerType() == CustomerType.REGULAR) {
             this.rewardRate = 0.01; // Khách Thường thưởng 1%
+        } else if (customer.getCustomerType() == CustomerType.VIP){
+            this.rewardRate = 0.03;
         } else {
             this.rewardRate = 0.0;
         }
