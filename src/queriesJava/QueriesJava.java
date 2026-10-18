@@ -269,21 +269,49 @@ public class QueriesJava {
                         " | Đơn giá: " + df.format(item.getPricePerKg()) + "/kg"));
     }
 
-    // 20. Trích xuất thông tin chi tiết của một loại phế liệu để xem đơn giá và khối lượng tồn kho hiện tại
+    // 20. Trích xuất tỷ lệ phần trăm khối lượng của 1 phế liệu theo mã ID so với tổng khối lượng của cùng nhóm loại (Nhựa/Kim loại/Giấy/Điện tử)
     public static void q20_extractScrapItemDetail(List<ScrapItem> items, String itemId) {
-        System.out.println("\n=== 20. TRÍCH XUẤT THÔNG TIN CHI TIẾT PHẾ LIỆU: " + itemId + " ===");
-        safeList(items).stream()
+        System.out.println("\n=== 20. TỈ LỆ PHẦN TRĂM KHỐI LƯỢNG THEO NHÓM CỦA PHẾ LIỆU: " + itemId + " ===");
+
+        // Bước 1: Tìm phế liệu theo mã ID
+        Optional<ScrapItem> targetOpt = safeList(items).stream()
+                .filter(Objects::nonNull)
                 .filter(item -> item.getId().equalsIgnoreCase(itemId))
-                .findFirst()
-                .ifPresentOrElse(
-                        item -> {
-                            System.out.println("Mã định danh      : " + item.getId());
-                            System.out.println("Tên mặt hàng      : " + item.getName());
-                            System.out.println("Đơn giá thu mua   : " + df.format(item.getPricePerKg()) + "/kg");
-                            System.out.println("Tồn kho hiện tại  : " + item.getWeight() + " kg");
-                        },
-                        () -> System.out.println("Không tìm thấy thông tin phế liệu mã: " + itemId)
-                );
+                .findFirst();
+
+        if (targetOpt.isEmpty()) {
+            System.out.println("Không tìm thấy phế liệu có mã: " + itemId);
+            return;
+        }
+
+        ScrapItem targetItem = targetOpt.get();
+
+        // Bước 2: Lọc ra tất cả các phế liệu cùng nhóm loại (cùng Class kế thừa)
+        List<ScrapItem> sameCategoryItems = safeList(items).stream()
+                .filter(Objects::nonNull)
+                .filter(item -> item.getClass().equals(targetItem.getClass()))
+                .toList();
+
+        // Bước 3: Tính tổng khối lượng của riêng nhóm sản phẩm đó
+        double totalCategoryWeight = sameCategoryItems.stream()
+                .mapToDouble(ScrapItem::getWeight)
+                .sum();
+
+        if (totalCategoryWeight <= 0) {
+            System.out.println("Tổng khối lượng của nhóm sản phẩm này bằng 0.");
+            return;
+        }
+
+        // Bước 4: Tính tỷ lệ % của phế liệu được chọn trên tổng khối lượng nhóm
+        double percentage = (targetItem.getWeight() / totalCategoryWeight) * 100;
+        String categoryName = targetItem.getClass().getSimpleName(); // MetalScrap, PlasticScrap, PaperScrap, EWasteScrap
+
+        System.out.println("   Mã ID phế liệu      : " + targetItem.getId());
+        System.out.println("   Tên mặt hàng        : " + targetItem.getName());
+        System.out.println("   Nhóm chủng loại     : " + categoryName);
+        System.out.printf("   Khối lượng phế liệu : %.2f kg\n", targetItem.getWeight());
+        System.out.printf("   Tổng khối lượng nhóm : %.2f kg\n", totalCategoryWeight);
+        System.out.printf("   ***TỶ LỆ ĐÓNG GÓP   : %.2f%% (trên tổng nhóm %s)\n", percentage, categoryName);
     }
 
     // =========================================================================
