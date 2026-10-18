@@ -187,7 +187,7 @@ public class Main {
         QueriesJava.q17_getPlasticItemsOver3Kg(items);
         QueriesJava.q18_getItemsAboveAveragePrice(items);
         QueriesJava.q19_getTop3LowestPriceItems(items);
-        QueriesJava.q20_extractScrapItemDetail(items, "P01");
+       QueriesJava.q20_extractScrapItemDetail(items, "PL01");
 
         System.out.println("\n------------------------------------------------------------------");
         System.out.println("        BÁO CÁO THỰC THI BỘ 10 TRUY VẤN KHÁCH HÀNG (Q21 - Q30)     ");
