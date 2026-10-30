@@ -240,7 +240,9 @@ public class Main {
             order.setStatus(OrderStatus.COMPLETED);
             System.out.println(" [THANH CONG]: Nhập kho hoàn tất! Đơn chuyển sang " + order.getStatus());
 
-            CustomerReward reward = new CustomerReward(customer.getCustomerType() == CustomerType.AGENCY ? 0.05 : 0.01);
+            CustomerReward reward = new CustomerReward((customer.getCustomerType() == CustomerType.AGENCY) ? 0.05 :
+                                            (customer.getCustomerType() == CustomerType.REGULAR) ? 0.01 :
+                                            (customer.getCustomerType() == CustomerType.VIP) ? 0.03 : 0.0);
             Invoice invoice = new Invoice("INV_" + order.getOrderId(), order, payment, employee, reward);
             invoice.printInvoice();
         }
